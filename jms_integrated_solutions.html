@@ -937,6 +937,9 @@
     setTimeout(notifyHeight, 500);
     setTimeout(notifyHeight, 1500);
 
+    // Hide HTML nav when embedded in Wix (Wix provides its own header)
+    if (window.self !== window.top) document.querySelector('nav').style.display = 'none';
+
     // Navigation: postMessage to Wix parent when in iframe, direct navigate otherwise
     document.addEventListener('click', function(e) {
       var link = e.target.closest('a[target="_top"]');
