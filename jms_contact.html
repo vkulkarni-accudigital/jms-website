@@ -675,19 +675,7 @@
       gsap.from(success, { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' });
     }
 
-    // Navigate via postMessage when in Wix iframe, normally otherwise
-    document.addEventListener('click', function(e) {
-      var link = e.target.closest('a[target="_top"]');
-      if (link && link.href && link.getAttribute('href') !== '#') {
-        if (window.self !== window.top) {
-          // In Wix iframe: send postMessage backup, let target="_top" navigate top frame natively
-          window.parent.postMessage({ type: 'wix-navigate', url: link.href }, '*');
-        } else {
-          e.preventDefault();
-          window.location.href = link.href;
-        }
-      }
-    });
+    // target="_top" on all nav/CTA links navigates the top frame (Wix or Netlify) natively
 
     // Nav dropdown toggle
     (function() {
