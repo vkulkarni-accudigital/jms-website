@@ -1183,6 +1183,15 @@
     setTimeout(notifyHeight, 500);
     setTimeout(notifyHeight, 1500);
 
+    // Navigate via postMessage for Wix iframe
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[target="_top"]');
+      if (link && link.href && link.getAttribute('href') !== '#') {
+        e.preventDefault();
+        window.parent.postMessage({ type: 'wix-navigate', url: link.href }, '*');
+      }
+    });
+
     // Nav dropdown toggle
     (function() {
       var wrap = document.querySelector('.nav-menu-wrap');
