@@ -675,7 +675,18 @@
       gsap.from(success, { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' });
     }
 
-    // target="_top" on all nav/CTA links navigates the top frame (Wix or Netlify) natively
+    // Navigation: postMessage to Wix parent when in iframe, direct navigate otherwise
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[target="_top"]');
+      if (link && link.href && link.getAttribute('href') !== '#') {
+        e.preventDefault();
+        if (window.self !== window.top) {
+          window.parent.postMessage({ type: 'wix-navigate', url: link.href }, '*');
+        } else {
+          window.location.href = link.href;
+        }
+      }
+    });
 
     // Nav dropdown toggle
     (function() {
