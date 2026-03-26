@@ -426,13 +426,12 @@
       transition: background 0.2s, color 0.2s;
       cursor: default;
     }
-    .capability-tag.filled { background: var(--accent); color: var(--white); }
+    .capability-tag.filled,
     .capability-tag.outline {
       background: transparent;
-      color: rgba(255,255,255,0.6);
-      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.3);
     }
-    .capability-tag.outline:hover { background: rgba(255,255,255,0.06); color: var(--white); }
 
     /* APPLICATIONS */
     .section-applications {
