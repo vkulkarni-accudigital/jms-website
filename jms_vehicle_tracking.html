@@ -604,6 +604,25 @@
     }
     .footer-contact a { color: var(--accent); text-decoration: none; }
 
+    /* PRICING BADGE */
+    .hero-price-badge {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      opacity: 0;
+    }
+    .hero-price {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+    }
+    .hero-price-amount { color: var(--accent); font-size: 20px; }
+    .hero-price-divider { width: 1px; height: 18px; background: rgba(255,255,255,0.18); }
+    .hero-price-note { font-family: var(--font-body); font-size: 13px; color: rgba(255,255,255,0.4); }
+
     /* ============================================
        ANIMATION BASE STATES
     ============================================ */
@@ -677,6 +696,11 @@
             <path d="M2 7h10M8 3l4 4-4 4"/>
           </svg>
         </a>
+      </div>
+      <div class="hero-price-badge">
+        <div class="hero-price">From <span class="hero-price-amount">$8.25</span> / device / mo</div>
+        <div class="hero-price-divider"></div>
+        <div class="hero-price-note">or $99 / year &nbsp;·&nbsp; No long-term contracts</div>
       </div>
     </div>
   </section>
@@ -845,7 +869,8 @@
     tl.to('.hero-eyebrow', { opacity: 1, y: 0, duration: 0.65, ease: 'power3.out' })
       .from('.hero-headline', { opacity: 0, y: 40, duration: 0.8, ease: 'power3.out' }, '-=0.2')
       .to('.hero-sub',     { opacity: 1, duration: 0.7, ease: 'power2.out' }, '-=0.3')
-      .to('.hero-cta-row', { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.4');
+      .to('.hero-cta-row', { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.4')
+      .to('.hero-price-badge', { opacity: 1, duration: 0.5, ease: 'power2.out' }, '-=0.3');
 
     gsap.utils.toArray('.reveal').forEach((el, i) => {
       gsap.to(el, {

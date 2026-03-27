@@ -412,6 +412,360 @@
     }
 
     /* ============================================
+       SPOTLIGHT SECTIONS (Camera + Tracking)
+    ============================================ */
+    .section-spotlight {
+      padding: 100px 80px;
+    }
+    .section-spotlight.dark { background: var(--dark); }
+    .section-spotlight.light { background: var(--light); }
+
+    .spotlight-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .spotlight-inner.reverse { direction: rtl; }
+    .spotlight-inner.reverse > * { direction: ltr; }
+
+    /* Carousel side */
+    .spotlight-carousel {
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      position: relative;
+    }
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.55s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .section-spotlight.dark .carousel-slide {
+      background: rgba(255,255,255,0.05);
+    }
+    .section-spotlight.light .carousel-slide {
+      background: rgba(0,0,0,0.06);
+    }
+    .carousel-slide svg {
+      width: 64px;
+      height: 64px;
+      opacity: 0.2;
+    }
+    .carousel-dots {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+    }
+    .carousel-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      cursor: pointer;
+      transition: background 0.25s, transform 0.25s;
+      border: none;
+      padding: 0;
+    }
+    .section-spotlight.light .carousel-dot {
+      background: rgba(0,0,0,0.25);
+    }
+    .carousel-dot.active {
+      background: var(--accent);
+      transform: scale(1.25);
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+      z-index: 2;
+    }
+    .section-spotlight.light .carousel-btn {
+      background: rgba(0,0,0,0.1);
+    }
+    .carousel-btn:hover { background: var(--accent); }
+    .carousel-btn svg { width: 16px; height: 16px; }
+    .carousel-btn.prev { left: 12px; }
+    .carousel-btn.next { right: 12px; }
+
+    /* Text side */
+    .spotlight-content {}
+    .spotlight-eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .spotlight-headline {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3vw, 44px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 16px;
+    }
+    .section-spotlight.dark .spotlight-headline { color: var(--white); }
+    .section-spotlight.light .spotlight-headline { color: var(--dark); }
+    .spotlight-sub {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+    .section-spotlight.dark .spotlight-sub { color: var(--muted-on-dark); }
+    .section-spotlight.light .spotlight-sub { color: var(--muted-on-light); }
+
+    /* Feature list */
+    .spotlight-features {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .spotlight-feature {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .spotlight-feature-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(26,122,74,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .spotlight-feature-icon svg { width: 18px; height: 18px; }
+    .spotlight-feature-text {}
+    .spotlight-feature-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .section-spotlight.dark .spotlight-feature-title { color: var(--white); }
+    .section-spotlight.light .spotlight-feature-title { color: var(--dark); }
+    .spotlight-feature-desc {
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+    .section-spotlight.dark .spotlight-feature-desc { color: var(--muted-on-dark); }
+    .section-spotlight.light .spotlight-feature-desc { color: var(--muted-on-light); }
+
+    /* ============================================
+       PRICING SECTION
+    ============================================ */
+    .section-pricing {
+      background: var(--white);
+      padding: 100px 80px;
+    }
+    .pricing-header {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 56px;
+    }
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .pricing-card {
+      background: var(--light);
+      border-radius: 20px;
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .pricing-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(26,122,74,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .pricing-card-icon svg { width: 24px; height: 24px; }
+    .pricing-card-name {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted-on-light);
+      margin-bottom: 10px;
+    }
+    .pricing-card-price {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 44px);
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pricing-card-period {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--muted-on-light);
+      margin-bottom: 24px;
+    }
+    .pricing-card-divider {
+      height: 1px;
+      background: rgba(0,0,0,0.08);
+      margin-bottom: 24px;
+    }
+    .pricing-card-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    .pricing-card-features li {
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      color: var(--muted-on-light);
+      line-height: 1.5;
+      padding-left: 20px;
+      position: relative;
+    }
+    .pricing-card-features li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .pricing-trust {
+      text-align: center;
+      margin-top: 40px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--muted-on-light);
+    }
+    .pricing-trust strong { color: var(--dark); }
+
+    /* ============================================
+       HOW IT WORKS SECTION
+    ============================================ */
+    .section-howitworks {
+      background: var(--dark);
+      padding: 100px 80px;
+    }
+    .howitworks-header {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 64px;
+    }
+    .howitworks-header .section-title { color: var(--white); }
+    .howitworks-header .section-sub { color: var(--muted-on-dark); }
+    .howitworks-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      max-width: 900px;
+      margin: 0 auto 56px;
+      position: relative;
+    }
+    .howitworks-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(16.66% + 24px);
+      right: calc(16.66% + 24px);
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+    }
+    .howitworks-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 24px;
+    }
+    .step-number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .step-desc {
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted-on-dark);
+    }
+    .howitworks-cta {
+      text-align: center;
+    }
+
+    /* ============================================
        SOLUTIONS SECTION
     ============================================ */
     .section-solutions {
@@ -724,6 +1078,11 @@
       .why-item { padding: 0 32px 0 0; }
       .why-item:last-child { padding: 0 0 0 32px; }
       .why-item:nth-child(2) { padding: 0 32px; }
+      .spotlight-inner { grid-template-columns: 1fr; gap: 48px; }
+      .spotlight-inner.reverse { direction: ltr; }
+      .pricing-cards { grid-template-columns: 1fr; }
+      .howitworks-steps { grid-template-columns: 1fr; gap: 40px; }
+      .howitworks-steps::before { display: none; }
     }
 
     @media (max-width: 768px) {
@@ -735,6 +1094,9 @@
       .section-solutions,
       .section-why,
       .section-vendors,
+      .section-spotlight,
+      .section-pricing,
+      .section-howitworks,
       .section-cta { padding-left: 24px; padding-right: 24px; }
       .solutions-grid { grid-template-columns: 1fr; }
       .why-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -864,6 +1226,252 @@
           <div class="diff-text">Real ongoing support after the sale, not a handoff to a 1-800 number</div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- CAMERA SPOTLIGHT -->
+  <section class="section-spotlight dark">
+    <div class="spotlight-inner">
+      <div class="spotlight-carousel reveal" data-carousel>
+        <div class="carousel-track">
+          <!-- Slide 1: replace div with <img src="your-photo.jpg" alt="..."> when ready -->
+          <div class="carousel-slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.89L15 14"/><rect x="3" y="8" width="12" height="8" rx="2"/></svg>
+          </div>
+          <!-- Slide 2 -->
+          <div class="carousel-slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0112 0v2"/></svg>
+          </div>
+          <!-- Slide 3 -->
+          <div class="carousel-slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+        </div>
+        <button class="carousel-btn prev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="carousel-btn next" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active"></button>
+          <button class="carousel-dot"></button>
+          <button class="carousel-dot"></button>
+        </div>
+      </div>
+      <div class="spotlight-content reveal">
+        <p class="spotlight-eyebrow">Camera Systems</p>
+        <h2 class="spotlight-headline">See everything happening in and around your vehicles</h2>
+        <p class="spotlight-sub">From basic event recording to AI-powered driver coaching, JMS installs and supports the right camera setup for your fleet's risk profile.</p>
+        <div class="spotlight-features">
+          <div class="spotlight-feature">
+            <div class="spotlight-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1A7A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.89L15 14"/><rect x="3" y="8" width="12" height="8" rx="2"/>
+              </svg>
+            </div>
+            <div class="spotlight-feature-text">
+              <div class="spotlight-feature-title">Incident Documentation</div>
+              <div class="spotlight-feature-desc">Automatic clip capture on harsh braking, collisions, and road events, protecting your business before disputes arise.</div>
+            </div>
+          </div>
+          <div class="spotlight-feature">
+            <div class="spotlight-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1A7A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0112 0v2"/>
+              </svg>
+            </div>
+            <div class="spotlight-feature-text">
+              <div class="spotlight-feature-title">Driver Behaviour Monitoring</div>
+              <div class="spotlight-feature-desc">AI scoring and coaching tools that identify risky patterns and reduce incidents before they happen.</div>
+            </div>
+          </div>
+          <div class="spotlight-feature">
+            <div class="spotlight-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1A7A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+              </svg>
+            </div>
+            <div class="spotlight-feature-text">
+              <div class="spotlight-feature-title">Live &amp; Recorded Access</div>
+              <div class="spotlight-feature-desc">Review footage remotely, anytime, with secure cloud access across your entire fleet.</div>
+            </div>
+          </div>
+        </div>
+        <a href="https://accudigital.wixstudio.com/my-site-8/camerasystemsnews" target="_blank" class="btn-primary">Explore Camera Systems</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRACKING SPOTLIGHT -->
+  <section class="section-spotlight light">
+    <div class="spotlight-inner reverse">
+      <div class="spotlight-carousel reveal" data-carousel>
+        <div class="carousel-track">
+          <!-- Slide 1: replace div with <img src="your-photo.jpg" alt="..."> when ready -->
+          <div class="carousel-slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+          </div>
+          <!-- Slide 2 -->
+          <div class="carousel-slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+          </div>
+          <!-- Slide 3 -->
+          <div class="carousel-slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h12"/><polyline points="17 15 20 18 17 21"/></svg>
+          </div>
+        </div>
+        <button class="carousel-btn prev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="carousel-btn next" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active"></button>
+          <button class="carousel-dot"></button>
+          <button class="carousel-dot"></button>
+        </div>
+      </div>
+      <div class="spotlight-content reveal">
+        <p class="spotlight-eyebrow">Fleet &amp; Asset Tracking</p>
+        <h2 class="spotlight-headline">Know where every vehicle and asset is, always</h2>
+        <p class="spotlight-sub">Real-time GPS visibility across your entire fleet, from vehicles on the road to trailers and equipment in the yard.</p>
+        <div class="spotlight-features">
+          <div class="spotlight-feature">
+            <div class="spotlight-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1A7A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+              </svg>
+            </div>
+            <div class="spotlight-feature-text">
+              <div class="spotlight-feature-title">Real-Time GPS</div>
+              <div class="spotlight-feature-desc">Live location updates with 4G LTE connectivity so you always know where your fleet is and where it's headed.</div>
+            </div>
+          </div>
+          <div class="spotlight-feature">
+            <div class="spotlight-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1A7A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
+              </svg>
+            </div>
+            <div class="spotlight-feature-text">
+              <div class="spotlight-feature-title">Asset &amp; Trailer Tracking</div>
+              <div class="spotlight-feature-desc">Track non-powered assets, trailers, and yard equipment with the same platform as your vehicles.</div>
+            </div>
+          </div>
+          <div class="spotlight-feature">
+            <div class="spotlight-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1A7A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12h18M3 6h18M3 18h12"/><polyline points="17 15 20 18 17 21"/>
+              </svg>
+            </div>
+            <div class="spotlight-feature-text">
+              <div class="spotlight-feature-title">Trip Reporting &amp; Alerts</div>
+              <div class="spotlight-feature-desc">Understand driver activity, mileage, site time, and exceptions, all in one operational view.</div>
+            </div>
+          </div>
+        </div>
+        <a href="https://accudigital.wixstudio.com/my-site-8/vehicletrackingnew" target="_blank" class="btn-primary">Explore Tracking Solutions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section-pricing">
+    <div class="pricing-header reveal">
+      <p class="section-eyebrow">Pricing</p>
+      <h2 class="section-title">Enterprise-grade tracking.<br><span class="accent">Without the enterprise price.</span></h2>
+      <p class="section-sub" style="text-align:center;max-width:480px;margin:18px auto 0;">Most fleets are overpaying for technology they don't need. JMS keeps it straightforward: best-in-class hardware, starting at $8.25 a month.</p>
+    </div>
+    <div class="pricing-cards">
+
+      <div class="pricing-card reveal">
+        <div class="pricing-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1A7A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+          </svg>
+        </div>
+        <div class="pricing-card-name">Vehicle Tracking</div>
+        <div class="pricing-card-price">$8.25</div>
+        <div class="pricing-card-period">per device / month &nbsp;·&nbsp; or $99 / year</div>
+        <div class="pricing-card-divider"></div>
+        <ul class="pricing-card-features">
+          <li>Real-time GPS location</li>
+          <li>Trip replay &amp; history</li>
+          <li>Geofencing &amp; alerts</li>
+          <li>Driver behaviour monitoring</li>
+        </ul>
+        <a href="https://accudigital.wixstudio.com/my-site-8/contact" target="_blank" class="btn-primary">Get a Quote</a>
+      </div>
+
+      <div class="pricing-card reveal">
+        <div class="pricing-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1A7A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.89L15 14"/><rect x="3" y="8" width="12" height="8" rx="2"/>
+          </svg>
+        </div>
+        <div class="pricing-card-name">Camera Systems</div>
+        <div class="pricing-card-price">$199</div>
+        <div class="pricing-card-period">per device / year</div>
+        <div class="pricing-card-divider"></div>
+        <ul class="pricing-card-features">
+          <li>Incident clip capture</li>
+          <li>AI driver behaviour scoring</li>
+          <li>Live &amp; recorded footage access</li>
+          <li>Secure cloud storage</li>
+        </ul>
+        <a href="https://accudigital.wixstudio.com/my-site-8/contact" target="_blank" class="btn-primary">Get a Quote</a>
+      </div>
+
+      <div class="pricing-card reveal">
+        <div class="pricing-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1A7A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
+          </svg>
+        </div>
+        <div class="pricing-card-name">Asset Tracking</div>
+        <div class="pricing-card-price">$8.25</div>
+        <div class="pricing-card-period">per device / month &nbsp;·&nbsp; or $99 / year</div>
+        <div class="pricing-card-divider"></div>
+        <ul class="pricing-card-features">
+          <li>Non-powered asset monitoring</li>
+          <li>Trailer &amp; yard equipment tracking</li>
+          <li>Configurable ping frequency</li>
+          <li>Same platform as vehicle tracking</li>
+        </ul>
+        <a href="https://accudigital.wixstudio.com/my-site-8/contact" target="_blank" class="btn-primary">Get a Quote</a>
+      </div>
+
+    </div>
+    <p class="pricing-trust reveal"><strong>No long-term contracts. No hidden fees.</strong> Pay per device, scale as your fleet grows. Most clients are up and running for less than the cost of a single speeding ticket a month.</p>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section-howitworks">
+    <div class="howitworks-header reveal">
+      <p class="section-eyebrow">How It Works</p>
+      <h2 class="section-title" style="color:var(--white)">Up and running in<br><span class="accent">three simple steps</span></h2>
+    </div>
+    <div class="howitworks-steps">
+      <div class="howitworks-step reveal">
+        <div class="step-number">1</div>
+        <div class="step-title">Tell us about your fleet</div>
+        <div class="step-desc">Share your fleet size, vehicle types, and what problems you're trying to solve. No commitment required.</div>
+      </div>
+      <div class="howitworks-step reveal">
+        <div class="step-number">2</div>
+        <div class="step-title">We match you to the right platform</div>
+        <div class="step-desc">We shortlist solutions from our multi-vendor portfolio that actually fit your operation, not just what we happen to carry.</div>
+      </div>
+      <div class="howitworks-step reveal">
+        <div class="step-number">3</div>
+        <div class="step-title">Local install, ongoing support</div>
+        <div class="step-desc">Our certified team handles installation in your market. The same contact is on the phone every time you call after.</div>
+      </div>
+    </div>
+    <div class="howitworks-cta reveal">
+      <a href="https://accudigital.wixstudio.com/my-site-8/contact" target="_blank" class="btn-primary">Start the Conversation</a>
     </div>
   </section>
 
@@ -1173,6 +1781,30 @@
           }
         });
       }
+    });
+
+    // ---- Carousels ----
+    document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
+      var track = carousel.querySelector('.carousel-track');
+      var dots = carousel.querySelectorAll('.carousel-dot');
+      var total = dots.length;
+      var current = 0;
+      var timer;
+
+      function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+      }
+
+      carousel.querySelector('.prev').addEventListener('click', function() { clearInterval(timer); goTo(current - 1); startAuto(); });
+      carousel.querySelector('.next').addEventListener('click', function() { clearInterval(timer); goTo(current + 1); startAuto(); });
+      dots.forEach(function(dot, i) {
+        dot.addEventListener('click', function() { clearInterval(timer); goTo(i); startAuto(); });
+      });
+
+      function startAuto() { timer = setInterval(function() { goTo(current + 1); }, 4000); }
+      startAuto();
     });
 
     // Auto-resize iframe in Wix parent
