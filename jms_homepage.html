@@ -1839,7 +1839,8 @@
       if (link && link.href && link.getAttribute('href') !== '#') {
         e.preventDefault();
         if (window.self !== window.top) {
-          window.parent.postMessage({ type: 'wix-navigate', url: link.href }, '*');
+          var slug = link.getAttribute('href').replace('https://accudigital.wixstudio.com/my-site-8', '');
+          window.parent.postMessage({ type: 'wix-navigate', slug: slug }, '*');
         } else {
           window.location.href = link.href;
         }
