@@ -343,16 +343,14 @@
     .product-card-image {
       aspect-ratio: 4/3;
       background: var(--light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 32px;
+      overflow: hidden;
       border-bottom: 1px solid rgba(0,0,0,0.05);
     }
     .product-card-image img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
+      display: block;
     }
 
     .product-card-body {

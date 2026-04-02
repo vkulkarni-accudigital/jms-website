@@ -385,13 +385,12 @@
       transition: background 0.2s, color 0.2s;
       cursor: default;
     }
-    .capability-tag.filled { background: var(--accent); color: var(--white); }
+    .capability-tag.filled,
     .capability-tag.outline {
-      background: transparent;
-      color: rgba(255,255,255,0.6);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: var(--dark);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.12);
     }
-    .capability-tag.outline:hover { background: rgba(255,255,255,0.06); color: var(--white); }
 
     /* APPLICATIONS */
     .section-applications {
@@ -619,6 +618,28 @@
     </div>
   </section>
 
+  <!-- PRODUCT -->
+  <section class="section-product" id="product">
+    <div class="section-header">
+      <p class="section-eyebrow">Hardware</p>
+      <h2 class="section-title reveal">Hardware for<br><span class="accent">every asset</span></h2>
+    </div>
+    <div class="product-block reveal">
+      <div class="product-image">
+        <img src="magnetic-asset_tracker.png" alt="Magnetic Asset Tracker with Fleet Management App">
+      </div>
+      <div>
+        <p class="product-label">Magnetic Asset Tracker</p>
+        <h3 class="product-title">Track What Vehicles Can't</h3>
+        <div class="product-body">
+          <p>Magnetic asset trackers are commonly deployed across trailers, containers, and non-powered equipment where flexible installation is required.</p>
+          <p>High-strength magnetic mounting allows rapid deployment without wiring or permanent modification, making them ideal for temporary or rotating asset use.</p>
+          <p>Built for durability and long-term field performance, these devices provide real-time visibility, movement alerts, and geofence monitoring across commercial environments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FEATURES -->
   <section class="section-features">
     <div class="section-header">
@@ -654,28 +675,6 @@
         </div>
         <div class="feature-title">Rugged Commercial Design</div>
         <div class="feature-desc">Weather-resistant enclosures built for demanding industrial and outdoor environments, ensuring reliable performance across job sites and yards.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUCT -->
-  <section class="section-product" id="product">
-    <div class="section-header">
-      <p class="section-eyebrow">Hardware</p>
-      <h2 class="section-title reveal">Hardware for<br><span class="accent">every asset</span></h2>
-    </div>
-    <div class="product-block reveal">
-      <div class="product-image">
-        <img src="magnetic-asset_tracker.png" alt="Magnetic Asset Tracker with Fleet Management App">
-      </div>
-      <div>
-        <p class="product-label">Magnetic Asset Tracker</p>
-        <h3 class="product-title">Track What Vehicles Can't</h3>
-        <div class="product-body">
-          <p>Magnetic asset trackers are commonly deployed across trailers, containers, and non-powered equipment where flexible installation is required.</p>
-          <p>High-strength magnetic mounting allows rapid deployment without wiring or permanent modification, making them ideal for temporary or rotating asset use.</p>
-          <p>Built for durability and long-term field performance, these devices provide real-time visibility, movement alerts, and geofence monitoring across commercial environments.</p>
-        </div>
       </div>
     </div>
   </section>

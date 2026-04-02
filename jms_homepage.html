@@ -263,39 +263,6 @@
     }
     .btn-ghost:hover { color: var(--white); }
 
-    .scroll-indicator {
-      position: absolute;
-      bottom: 44px;
-      left: 80px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      color: rgba(255,255,255,0.3);
-      font-size: 11px;
-      font-family: var(--font-body);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .scroll-line {
-      width: 44px;
-      height: 1px;
-      background: rgba(255,255,255,0.12);
-      position: relative;
-      overflow: hidden;
-    }
-    .scroll-line::after {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: var(--accent);
-      animation: scrollPulse 2.2s ease-in-out infinite;
-    }
-    @keyframes scrollPulse {
-      0%   { left: -100%; }
-      100% { left: 100%; }
-    }
 
     /* ============================================
        TRUST BAR
@@ -598,8 +565,12 @@
     }
     .pricing-header {
       text-align: center;
-      max-width: 560px;
+      max-width: 900px;
       margin: 0 auto 56px;
+    }
+    .pricing-header .section-title {
+      font-size: clamp(32px, 4.5vw, 60px);
+      white-space: nowrap;
     }
     .pricing-cards {
       display: grid;
@@ -747,7 +718,27 @@
       margin-bottom: 24px;
       position: relative;
       z-index: 1;
+      transition: background 0.4s ease, border-color 0.4s ease;
     }
+    .step-number .step-check {
+      display: none;
+      width: 22px;
+      height: 22px;
+    }
+    .step-number .step-digit { transition: opacity 0.2s; }
+    .howitworks-step.done .step-number {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .howitworks-step.done .step-digit { display: none; }
+    .howitworks-step.done .step-check { display: block; }
+    .howitworks-step.active .step-number {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(26,122,74,0.25);
+    }
+    .step-title { transition: color 0.3s; }
+    .howitworks-step.active .step-title,
+    .howitworks-step.done .step-title { color: var(--white); }
     .step-title {
       font-family: var(--font-display);
       font-size: 18px;
@@ -1064,8 +1055,7 @@
     ============================================ */
     .hero-eyebrow,
     .hero-sub,
-    .hero-cta-row,
-    .scroll-indicator { opacity: 0; }
+    .hero-cta-row { opacity: 0; }
 
     .reveal { opacity: 0; transform: translateY(28px); }
 
@@ -1165,10 +1155,6 @@
       </div>
     </div>
 
-    <div class="scroll-indicator" id="scroll-indicator">
-      <div class="scroll-line"></div>
-      Scroll to explore
-    </div>
   </section>
 
   <!-- TRUST BAR -->
@@ -1234,17 +1220,16 @@
     <div class="spotlight-inner">
       <div class="spotlight-carousel reveal" data-carousel>
         <div class="carousel-track">
-          <!-- Slide 1: replace div with <img src="your-photo.jpg" alt="..."> when ready -->
           <div class="carousel-slide">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.89L15 14"/><rect x="3" y="8" width="12" height="8" rx="2"/></svg>
+            <img src="camera-allinone.jpg" alt="All-in-One Camera System">
           </div>
-          <!-- Slide 2 -->
           <div class="carousel-slide">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0112 0v2"/></svg>
+            <img src="camera-multicam.png" alt="Multi-Camera Fleet System">
           </div>
-          <!-- Slide 3 -->
           <div class="carousel-slide">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+              <source src="camera-incabin.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
         <button class="carousel-btn prev" aria-label="Previous">
@@ -1308,17 +1293,14 @@
     <div class="spotlight-inner reverse">
       <div class="spotlight-carousel reveal" data-carousel>
         <div class="carousel-track">
-          <!-- Slide 1: replace div with <img src="your-photo.jpg" alt="..."> when ready -->
           <div class="carousel-slide">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+            <img src="OBD_Main.png" alt="OBD Plug-In GPS Tracker">
           </div>
-          <!-- Slide 2 -->
           <div class="carousel-slide">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+            <img src="LTE_Main.png" alt="4G LTE Hardwired GPS Tracker">
           </div>
-          <!-- Slide 3 -->
           <div class="carousel-slide">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h12"/><polyline points="17 15 20 18 17 21"/></svg>
+            <img src="Magnetic-Asset-Tracker-2.png" alt="Magnetic Asset Tracker">
           </div>
         </div>
         <button class="carousel-btn prev" aria-label="Previous">
@@ -1454,18 +1436,27 @@
       <h2 class="section-title" style="color:var(--white)">Up and running in<br><span class="accent">three simple steps</span></h2>
     </div>
     <div class="howitworks-steps">
-      <div class="howitworks-step reveal">
-        <div class="step-number">1</div>
+      <div class="howitworks-step" data-step="1">
+        <div class="step-number">
+          <span class="step-digit">1</span>
+          <svg class="step-check" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
         <div class="step-title">Tell us about your fleet</div>
         <div class="step-desc">Share your fleet size, vehicle types, and what problems you're trying to solve. No commitment required.</div>
       </div>
-      <div class="howitworks-step reveal">
-        <div class="step-number">2</div>
+      <div class="howitworks-step" data-step="2">
+        <div class="step-number">
+          <span class="step-digit">2</span>
+          <svg class="step-check" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
         <div class="step-title">We match you to the right platform</div>
         <div class="step-desc">We shortlist solutions from our multi-vendor portfolio that actually fit your operation, not just what we happen to carry.</div>
       </div>
-      <div class="howitworks-step reveal">
-        <div class="step-number">3</div>
+      <div class="howitworks-step" data-step="3">
+        <div class="step-number">
+          <span class="step-digit">3</span>
+          <svg class="step-check" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
         <div class="step-title">Local install, ongoing support</div>
         <div class="step-desc">Our certified team handles installation in your market. The same contact is on the phone every time you call after.</div>
       </div>
@@ -1746,8 +1737,7 @@
       .from('.hero-line-2', { opacity: 0, y: 36, duration: 0.75, ease: 'power3.out' }, '-=0.55')
       .from('.accent-line', { opacity: 0, y: 36, duration: 0.75, ease: 'power3.out' }, '-=0.55')
       .to('.hero-sub',      { opacity: 1, duration: 0.7,  ease: 'power2.out' }, '-=0.25')
-      .to('.hero-cta-row',  { opacity: 1, duration: 0.65, ease: 'power2.out' }, '-=0.4')
-      .to('#scroll-indicator', { opacity: 1, duration: 0.5 }, '-=0.1');
+      .to('.hero-cta-row',  { opacity: 1, duration: 0.65, ease: 'power2.out' }, '-=0.4');
 
     // ---- Scroll reveals ----
     gsap.utils.toArray('.reveal').forEach((el, i) => {
@@ -1782,6 +1772,30 @@
         });
       }
     });
+
+    // ---- How It Works steps ----
+    (function() {
+      var steps = document.querySelectorAll('.howitworks-step');
+      var triggered = false;
+      ScrollTrigger.create({
+        trigger: '.howitworks-steps',
+        start: 'top 75%',
+        onEnter: function() {
+          if (triggered) return;
+          triggered = true;
+          var delays = [0, 1400, 2800];
+          steps.forEach(function(step, i) {
+            setTimeout(function() {
+              step.classList.add('active');
+              setTimeout(function() {
+                step.classList.remove('active');
+                step.classList.add('done');
+              }, 900);
+            }, delays[i]);
+          });
+        }
+      });
+    })();
 
     // ---- Carousels ----
     document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
