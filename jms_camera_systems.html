@@ -185,7 +185,6 @@
       opacity: 0;
     }
     .hero-cta-row { display: flex; align-items: center; gap: 24px; opacity: 0; }
-    .btn-primary svg, .btn-inverse svg, .btn-ghost svg { pointer-events: none; }
     .btn-primary {
       background: var(--accent);
       color: var(--white);
@@ -923,7 +922,12 @@
 
     // Navigation: use window.top to break out of iframe
     document.addEventListener('click', function(e) {
-      var link = e.target.closest('a[target="_top"]');
+      var t = e.target;
+      var link = (t && t.closest) ? t.closest('a[target="_top"]') : null;
+      if (!link && t) {
+        var p = t.parentElement;
+        while (p) { if (p.tagName === 'A' && p.getAttribute('target') === '_top') { link = p; break; } p = p.parentElement; }
+      }
       if (link && link.href && link.getAttribute('href') !== '#') {
         e.preventDefault();
         window.top.location.href = link.href;
