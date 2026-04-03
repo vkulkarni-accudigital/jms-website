@@ -862,19 +862,7 @@
     // Hide HTML nav when embedded in Wix (Wix provides its own header)
     if (window.self !== window.top) document.querySelector('nav').style.display = 'none';
 
-    // Navigation: use window.top to break out of iframe
-    document.addEventListener('click', function(e) {
-      var t = e.target;
-      var link = (t && t.closest) ? t.closest('a[target="_top"]') : null;
-      if (!link && t) {
-        var p = t.parentElement;
-        while (p) { if (p.tagName === 'A' && p.getAttribute('target') === '_top') { link = p; break; } p = p.parentElement; }
-      }
-      if (link && link.href && link.getAttribute('href') !== '#') {
-        e.preventDefault();
-        window.top.location.href = link.href;
-      }
-    });
+    // target="_top" on links handles iframe navigation natively
 
     // Nav dropdown toggle
     (function() {
