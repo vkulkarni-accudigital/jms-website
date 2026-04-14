@@ -110,8 +110,11 @@
       cursor: pointer;
       display: flex;
       align-items: center;
+      overflow: hidden;
+      width: 260px;
+      height: 80px;
     }
-    .nav-brand img { height: 200px; width: auto;  }
+    .nav-brand img { width: 100%; height: 100%; object-fit: cover; }
 
     .nav-cta {
       background: var(--accent);
@@ -219,6 +222,74 @@
       color: var(--muted-on-dark);
       max-width: 540px;
       margin-bottom: 52px;
+    }
+
+    /* Camera In Action sub-section */
+    .section-camera-inaction {
+      background: #0e0e0e;
+      padding: 72px 40px;
+    }
+    .camera-inaction-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .camera-inaction-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .camera-inaction-headline {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 48px;
+      max-width: 600px;
+    }
+    .camera-inaction-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    @media (max-width: 700px) {
+      .camera-inaction-grid { grid-template-columns: 1fr; }
+      .section-camera-inaction { padding: 48px 20px; }
+    }
+    .camera-inaction-img-wrap {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #1a1a1a;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .camera-inaction-img-wrap img,
+    .camera-inaction-img-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .camera-inaction-img-wrap .placeholder-label {
+      color: #444;
+      font-size: 13px;
+      font-style: italic;
+    }
+    .camera-inaction-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .camera-inaction-desc {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
     }
 
     .hero-cta-row {
@@ -399,34 +470,37 @@
     .spotlight-carousel {
       border-radius: 20px;
       overflow: hidden;
-      aspect-ratio: 4/3;
+      aspect-ratio: 16/9;
       position: relative;
     }
     .carousel-track {
-      display: flex;
+      position: relative;
       width: 100%;
       height: 100%;
-      transition: transform 0.55s cubic-bezier(0.65, 0, 0.35, 1);
     }
     .carousel-slide {
-      min-width: 100%;
-      height: 100%;
-      flex-shrink: 0;
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
       display: flex;
       align-items: center;
       justify-content: center;
     }
+    .carousel-slide.active {
+      opacity: 1;
+    }
     .carousel-slide img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
     }
     .section-spotlight.dark .carousel-slide {
-      background: rgba(255,255,255,0.05);
+      background: #1a1a1a;
     }
     .section-spotlight.light .carousel-slide {
-      background: rgba(0,0,0,0.06);
+      background: #f0eeea;
     }
     .carousel-slide svg {
       width: 64px;
@@ -1115,7 +1189,7 @@
         <a href="https://accudigital.wixstudio.com/my-site-8/contact" target="_top">Contact</a>
       </div>
     </div>
-    <a href="https://accudigital.wixstudio.com/my-site-8/" target="_top" class="nav-brand"><img src="JMS-Logo.png" alt="JMS Associates"></a>
+    <a href="https://accudigital.wixstudio.com/my-site-8/" target="_top" class="nav-brand"><img src="assets/JMS-Logo.png" alt="JMS Associates"></a>
     <a href="tel:+14016789312" class="nav-cta">Call Us</a>
   </nav>
 
@@ -1221,15 +1295,13 @@
       <div class="spotlight-carousel reveal" data-carousel>
         <div class="carousel-track">
           <div class="carousel-slide">
-            <img src="camera-allinone.jpg" alt="All-in-One Camera System">
+            <img src="assets/hero-dashcam-mockup.png" alt="Multi-Device Dashboard with Dashcam">
           </div>
           <div class="carousel-slide">
-            <img src="camera-multicam.png" alt="Multi-Camera Fleet System">
+            <img src="assets/camera-multicam.png" alt="Multi-Camera Fleet System">
           </div>
           <div class="carousel-slide">
-            <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
-              <source src="camera-incabin.mp4" type="video/mp4">
-            </video>
+            <img src="assets/camera-dsm.png" alt="Driver State Monitoring Camera">
           </div>
         </div>
         <button class="carousel-btn prev" aria-label="Previous">
@@ -1288,19 +1360,76 @@
     </div>
   </section>
 
+  <!-- CAMERA IN ACTION -->
+  <section class="section-camera-inaction">
+    <div class="camera-inaction-inner">
+      <p class="camera-inaction-eyebrow">Camera Systems in Action</p>
+      <h2 class="camera-inaction-headline reveal">See what your fleet cameras actually capture</h2>
+      <div class="camera-inaction-grid">
+
+        <div class="camera-inaction-card reveal">
+          <div class="camera-inaction-img-wrap">
+            <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+              <source src="assets/Trip-replay.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="camera-inaction-title">Stream Live</div>
+          <div class="camera-inaction-desc">View any camera on your fleet in real time. Stream up to 4 cameras from the same vehicle simultaneously and save clips for review.</div>
+        </div>
+
+        <div class="camera-inaction-card reveal">
+          <div class="camera-inaction-img-wrap">
+            <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+              <source src="assets/Review-mode.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="camera-inaction-title">Review Footage</div>
+          <div class="camera-inaction-desc">Access any recorded clip from your fleet's cloud storage. Search by date, event, or vehicle without physically touching the device.</div>
+        </div>
+
+        <div class="camera-inaction-card reveal">
+          <div class="camera-inaction-img-wrap">
+            <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+              <source src="assets/Incab-view.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="camera-inaction-title">In-Cab View</div>
+          <div class="camera-inaction-desc">Driver-facing cameras monitor fatigue, distraction, and phone use. Compact, unobtrusive mounts that fit any cab configuration.</div>
+        </div>
+
+        <div class="camera-inaction-card reveal">
+          <div class="camera-inaction-img-wrap">
+            <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+              <source src="assets/Roadside-view.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="camera-inaction-title">Road-Facing View</div>
+          <div class="camera-inaction-desc">High-resolution forward-facing footage for incident documentation, liability protection, and route verification.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- TRACKING SPOTLIGHT -->
   <section class="section-spotlight light">
     <div class="spotlight-inner reverse">
       <div class="spotlight-carousel reveal" data-carousel>
         <div class="carousel-track">
           <div class="carousel-slide">
-            <img src="OBD_Main.png" alt="OBD Plug-In GPS Tracker">
+            <img src="assets/front_loader_final.png" alt="Front end loader tracked by JMS">
           </div>
           <div class="carousel-slide">
-            <img src="LTE_Main.png" alt="4G LTE Hardwired GPS Tracker">
+            <img src="assets/skid_steer_composite.png" alt="Bobcat skid steer tracked by JMS">
           </div>
           <div class="carousel-slide">
-            <img src="Magnetic-Asset-Tracker-2.png" alt="Magnetic Asset Tracker">
+            <img src="assets/OBD_Main.png" alt="OBD Plug-In GPS Tracker">
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/LTE_Main.png" alt="4G LTE Hardwired GPS Tracker">
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/Magnetic-Asset-Tracker-2.png" alt="Magnetic Asset Tracker">
           </div>
         </div>
         <button class="carousel-btn prev" aria-label="Previous">
@@ -1311,6 +1440,8 @@
         </button>
         <div class="carousel-dots">
           <button class="carousel-dot active"></button>
+          <button class="carousel-dot"></button>
+          <button class="carousel-dot"></button>
           <button class="carousel-dot"></button>
           <button class="carousel-dot"></button>
         </div>
@@ -1719,7 +1850,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <a href="#" class="footer-brand" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;"><img src="JMS-Logo.png" alt="JMS Associates"></a>
+    <a href="#" class="footer-brand" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;"><img src="assets/JMS-Logo.png" alt="JMS Associates"></a>
     <span class="footer-contact">
       <a href="mailto:jim@jmsassociates.ai">jim@jmsassociates.ai</a>
     </span>
@@ -1799,17 +1930,19 @@
 
     // ---- Carousels ----
     document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
-      var track = carousel.querySelector('.carousel-track');
+      var slides = carousel.querySelectorAll('.carousel-slide');
       var dots = carousel.querySelectorAll('.carousel-dot');
-      var total = dots.length;
+      var total = slides.length;
       var current = 0;
       var timer;
 
       function goTo(index) {
         current = (index + total) % total;
-        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        slides.forEach(function(s, i) { s.classList.toggle('active', i === current); });
         dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
       }
+
+      goTo(0);
 
       carousel.querySelector('.prev').addEventListener('click', function() { clearInterval(timer); goTo(current - 1); startAuto(); });
       carousel.querySelector('.next').addEventListener('click', function() { clearInterval(timer); goTo(current + 1); startAuto(); });
