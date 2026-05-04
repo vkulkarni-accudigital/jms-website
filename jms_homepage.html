@@ -979,6 +979,78 @@
     }
 
     /* ============================================
+       INDUSTRIES WE SERVE
+    ============================================ */
+    .section-industries {
+      background: var(--dark);
+      padding: 100px 80px;
+    }
+    .industries-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 56px;
+    }
+    .industries-header .section-title { color: var(--white); }
+    .industries-header .section-sub { color: var(--muted-on-dark); }
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .industry-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: background 0.2s;
+    }
+    .industry-card:hover { background: rgba(255,255,255,0.07); }
+    .industry-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(26,122,74,0.2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .industry-icon svg { width: 22px; height: 22px; stroke: var(--accent); }
+    .industry-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .industry-desc {
+      font-family: var(--font-body);
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--muted-on-dark);
+    }
+
+    /* ============================================
+       PRICING STATEMENT (header only)
+    ============================================ */
+    .section-pricing-statement {
+      background: var(--white);
+      padding: 80px 80px 64px;
+      text-align: center;
+    }
+    .pricing-statement-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .pricing-statement-inner .section-title {
+      font-size: clamp(32px, 4.5vw, 60px);
+    }
+
+    /* ============================================
        WHY JMS
     ============================================ */
     .section-why {
@@ -1212,6 +1284,9 @@
       .product-inner, .product-inner.flip { grid-template-columns: 1fr; }
       .product-inner.flip .product-image { order: 0; }
       .product-features { grid-template-columns: 1fr; }
+      .industries-grid { grid-template-columns: 1fr; }
+      .section-industries,
+      .section-pricing-statement { padding-left: 24px; padding-right: 24px; }
       .why-grid { grid-template-columns: 1fr; gap: 48px; }
       .why-item,
       .why-item:last-child,
@@ -1426,6 +1501,87 @@
     </div>
   </section>
 
+  <!-- INDUSTRIES WE SERVE -->
+  <section class="section-industries">
+    <div class="industries-header">
+      <p class="section-eyebrow">Industries We Serve</p>
+      <h2 class="section-title reveal" style="color:var(--white)">Built for the industries<br><span class="accent">that keep things moving</span></h2>
+      <p class="section-sub reveal" style="color:var(--muted-on-dark);margin-top:16px;">From single-truck operators to multi-site fleets, JMS deploys fleet technology across the industries that depend on it most.</p>
+    </div>
+    <div class="industries-grid">
+
+      <div class="industry-card reveal">
+        <div class="industry-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 20h20M6 20V10l6-7 6 7v10M10 20v-5h4v5"/>
+          </svg>
+        </div>
+        <div class="industry-title">Construction &amp; Heavy Equipment</div>
+        <div class="industry-desc">Track excavators, loaders, and powered equipment across job sites. Know where every asset is, how long it ran, and when it moved.</div>
+      </div>
+
+      <div class="industry-card reveal">
+        <div class="industry-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+          </svg>
+        </div>
+        <div class="industry-title">Trucking &amp; Logistics</div>
+        <div class="industry-desc">Real-time GPS, ELD compliance, and driver behaviour monitoring for long-haul and regional trucking fleets.</div>
+      </div>
+
+      <div class="industry-card reveal">
+        <div class="industry-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+        <div class="industry-title">Utilities &amp; Field Services</div>
+        <div class="industry-desc">Dispatch visibility, service area tracking, and equipment accountability for utility crews working across wide coverage areas.</div>
+      </div>
+
+      <div class="industry-card reveal">
+        <div class="industry-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22V12M12 12C12 12 7 9 7 5a5 5 0 0110 0c0 4-5 7-5 7z"/>
+          </svg>
+        </div>
+        <div class="industry-title">Agriculture &amp; Farming</div>
+        <div class="industry-desc">Monitor tractors, trailers, and equipment across large properties. Non-powered asset trackers for machinery that doesn't move daily.</div>
+      </div>
+
+      <div class="industry-card reveal">
+        <div class="industry-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div class="industry-title">Transportation &amp; Delivery</div>
+        <div class="industry-desc">Route monitoring, proof of delivery visibility, and customer ETA updates for last-mile and regional delivery fleets.</div>
+      </div>
+
+      <div class="industry-card reveal">
+        <div class="industry-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <div class="industry-title">Municipalities &amp; Government</div>
+        <div class="industry-desc">Fleet accountability, mileage reporting, and asset tracking for public works, transit, and government vehicle fleets.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRICING STATEMENT -->
+  <section class="section-pricing-statement">
+    <div class="pricing-statement-inner">
+      <p class="section-eyebrow">Pricing</p>
+      <h2 class="section-title reveal">Enterprise-grade tracking.<br><span class="accent">Without the enterprise price.</span></h2>
+      <p class="section-sub reveal" style="text-align:center;max-width:520px;margin:18px auto 0;">Most fleets are overpaying for technology they don't need. JMS keeps it straightforward: best-in-class hardware, starting at $8.25 a month. No long-term contracts. No hidden fees.</p>
+    </div>
+  </section>
+
   <!-- CAMERA SPOTLIGHT -->
   <section class="section-spotlight dark">
     <div class="spotlight-inner">
@@ -1625,101 +1781,6 @@
         <a href="https://accudigital.wixstudio.com/my-site-8/vehicle-tracking" target="_top" class="btn-primary">Explore Tracking Solutions</a>
       </div>
     </div>
-  </section>
-
-  <!-- PRICING -->
-  <section class="section-pricing">
-    <div class="pricing-header reveal">
-      <p class="section-eyebrow">Pricing</p>
-      <h2 class="section-title">Enterprise-grade tracking.<br><span class="accent">Without the enterprise price.</span></h2>
-      <p class="section-sub" style="text-align:center;max-width:480px;margin:18px auto 0;">Most fleets are overpaying for technology they don't need. JMS keeps it straightforward: best-in-class hardware, starting at $8.25 a month.</p>
-    </div>
-    <div class="pricing-cards">
-
-      <!-- Vehicle Tracking -->
-      <div class="pricing-card reveal">
-        <div class="pricing-card-visual">
-          <img src="assets/OBD_Main.png" alt="Vehicle GPS Tracker" onerror="this.style.display='none'">
-        </div>
-        <div class="pricing-card-body">
-          <div class="pricing-card-name">Vehicle Tracking</div>
-          <div class="pricing-card-price">$8.25</div>
-          <div class="pricing-card-period">per device / month &nbsp;·&nbsp; or $99 / year</div>
-          <div class="pricing-card-divider"></div>
-          <ul class="pricing-card-features">
-            <li>Real-time GPS location</li>
-            <li>Trip replay &amp; history</li>
-            <li>Geofencing &amp; alerts</li>
-            <li>Driver behaviour monitoring</li>
-          </ul>
-          <a href="https://accudigital.wixstudio.com/my-site-8/contact" target="_top" class="btn-primary">Get a Quote</a>
-        </div>
-      </div>
-
-      <!-- Camera Systems -->
-      <div class="pricing-card reveal">
-        <div class="pricing-card-visual">
-          <img src="assets/hero-dashcam-mockup.png" alt="Dashcam System" onerror="this.style.display='none'">
-        </div>
-        <div class="pricing-card-body">
-          <div class="pricing-card-name">Camera Systems</div>
-          <div class="pricing-card-quote-label">Custom Pricing</div>
-          <div class="pricing-card-period">Tailored to your camera setup and fleet size</div>
-          <div class="pricing-card-divider"></div>
-          <ul class="pricing-card-features">
-            <li>Incident clip capture</li>
-            <li>AI driver behaviour scoring</li>
-            <li>Live &amp; recorded footage access</li>
-            <li>Secure cloud storage</li>
-          </ul>
-          <a href="https://accudigital.wixstudio.com/my-site-8/contact" target="_top" class="btn-primary">Get in Touch</a>
-        </div>
-      </div>
-
-      <!-- Powered Asset Tracking -->
-      <div class="pricing-card reveal">
-        <div class="pricing-card-visual">
-          <img src="assets/LTE_Main.png" alt="Powered Asset Tracker" onerror="this.style.display='none'">
-        </div>
-        <div class="pricing-card-body">
-          <div class="pricing-card-tag">Powered Assets</div>
-          <div class="pricing-card-name">Asset Tracking</div>
-          <div class="pricing-card-price">$8.25</div>
-          <div class="pricing-card-period">per device / month &nbsp;·&nbsp; or $99 / year</div>
-          <div class="pricing-card-divider"></div>
-          <ul class="pricing-card-features">
-            <li>OBD &amp; hardwired device options</li>
-            <li>Real-time location &amp; ignition data</li>
-            <li>Geofencing &amp; utilisation alerts</li>
-            <li>Same platform as vehicle tracking</li>
-          </ul>
-          <a href="https://accudigital.wixstudio.com/my-site-8/contact" target="_top" class="btn-primary">Get a Quote</a>
-        </div>
-      </div>
-
-      <!-- Non-Powered Asset Tracking -->
-      <div class="pricing-card reveal">
-        <div class="pricing-card-visual">
-          <img src="assets/Magnetic-Asset-Tracker-2.png" alt="Non-Powered Asset Tracker" onerror="this.style.display='none'">
-        </div>
-        <div class="pricing-card-body">
-          <div class="pricing-card-tag">Non-Powered Assets</div>
-          <div class="pricing-card-name">Asset Tracking</div>
-          <div class="pricing-card-price">$8.25</div>
-          <div class="pricing-card-period">per device / month &nbsp;·&nbsp; or $99 / year</div>
-          <div class="pricing-card-divider"></div>
-          <ul class="pricing-card-features">
-            <li>Magnetic, battery-powered tracker</li>
-            <li>Trailer &amp; yard equipment tracking</li>
-            <li>Configurable ping frequency</li>
-            <li>Long battery life, no wiring needed</li>
-          </ul>
-          <a href="https://accudigital.wixstudio.com/my-site-8/contact" target="_top" class="btn-primary">Get a Quote</a>
-        </div>
-      </div>
-
-    </div>
-    <p class="pricing-trust reveal"><strong>No long-term contracts. No hidden fees.</strong> Pay per device, scale as your fleet grows. Most clients are up and running for less than the cost of a single speeding ticket a month.</p>
   </section>
 
   <!-- HOW IT WORKS -->
