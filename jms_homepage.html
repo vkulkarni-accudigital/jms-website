@@ -157,9 +157,10 @@
     ============================================ */
     .hero {
       min-height: 800px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.35fr);
+      gap: 56px;
+      align-items: center;
       padding: 80px 80px 80px;
       position: relative;
       overflow: hidden;
@@ -206,7 +207,28 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 820px;
+      max-width: 620px;
+    }
+
+    .hero-creative {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      aspect-ratio: 1600 / 900;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #0b0b0b;
+      box-shadow: 0 30px 80px -30px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+    }
+    .hero-creative iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1600px;
+      height: 900px;
+      border: 0;
+      transform-origin: top left;
+      pointer-events: none;
     }
 
     .hero-eyebrow {
@@ -221,12 +243,12 @@
 
     .hero-headline {
       font-family: var(--font-display);
-      font-size: clamp(52px, 6.5vw, 92px);
+      font-size: clamp(38px, 4.2vw, 64px);
       font-weight: 700;
-      line-height: 1.04;
+      line-height: 1.06;
       letter-spacing: -0.025em;
       color: var(--white);
-      margin-bottom: 36px;
+      margin-bottom: 28px;
     }
 
     .hero-headline .accent-line {
@@ -237,12 +259,12 @@
 
     .hero-sub {
       font-family: var(--font-body);
-      font-size: clamp(16px, 1.8vw, 19px);
+      font-size: clamp(15px, 1.4vw, 17px);
       font-weight: 400;
-      line-height: 1.75;
+      line-height: 1.7;
       color: var(--muted-on-dark);
-      max-width: 540px;
-      margin-bottom: 52px;
+      max-width: 480px;
+      margin-bottom: 40px;
     }
 
     /* Camera In Action sub-section */
@@ -958,6 +980,86 @@
       color: var(--accent);
       margin-bottom: 20px;
     }
+    .camera-price-badge {
+      display: inline-flex;
+      flex-direction: column;
+      background: rgba(26,122,74,0.07);
+      border: 1.5px solid rgba(26,122,74,0.2);
+      border-radius: 14px;
+      padding: 14px 22px;
+      margin-bottom: 24px;
+      align-self: flex-start;
+    }
+    .camera-price-from {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+    .camera-price-amount {
+      font-family: var(--font-display);
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--dark);
+    }
+    .camera-price-amount span {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .camera-price-note {
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 5px;
+    }
+    .camera-feature-groups {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 32px;
+      margin-bottom: 36px;
+    }
+    .camera-feature-group-title {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .camera-feature-group ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .camera-feature-group ul li {
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      color: var(--muted-on-light);
+      line-height: 1.4;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .camera-feature-group ul li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    @media (max-width: 640px) {
+      .camera-feature-groups { grid-template-columns: 1fr; }
+    }
     .product-desc {
       font-family: var(--font-body);
       font-size: 15px;
@@ -999,6 +1101,182 @@
       max-height: 420px;
       object-fit: contain;
       filter: drop-shadow(0 24px 64px rgba(0,0,0,0.10));
+    }
+
+    /* ============================================
+       USE CASES (TABBED)
+    ============================================ */
+    .section-usecases {
+      background: var(--white);
+      padding: 112px 80px;
+    }
+    .usecases-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .usecases-header {
+      max-width: 640px;
+      margin-bottom: 48px;
+    }
+    .usecases-header .section-eyebrow {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .usecases-header .usecases-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      color: var(--dark);
+      margin-bottom: 14px;
+    }
+    .usecases-header .usecases-title .accent { color: var(--accent); font-style: italic; }
+    .usecases-header .usecases-sub {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--muted-on-light);
+    }
+
+    .usecase-tabs {
+      position: relative;
+      display: inline-flex;
+      gap: 4px;
+      padding: 6px;
+      background: var(--light);
+      border-radius: 999px;
+      margin-bottom: 40px;
+    }
+    .usecase-tab {
+      position: relative;
+      z-index: 2;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      padding: 11px 22px;
+      border: none;
+      background: transparent;
+      color: var(--muted-on-light);
+      cursor: pointer;
+      border-radius: 999px;
+      transition: color 0.25s ease;
+      white-space: nowrap;
+    }
+    .usecase-tab:hover { color: var(--dark); }
+    .usecase-tab.active { color: var(--white); }
+    .usecase-tab-indicator {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      height: calc(100% - 12px);
+      background: var(--accent);
+      border-radius: 999px;
+      transition: transform 0.42s cubic-bezier(.5,.08,.2,1), width 0.42s cubic-bezier(.5,.08,.2,1);
+      z-index: 1;
+    }
+
+    .usecase-panels {
+      position: relative;
+    }
+    .usecase-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      gap: 64px;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      inset: 0;
+      transform: translateY(12px);
+      transition: opacity 0.42s ease, transform 0.42s ease;
+      pointer-events: none;
+    }
+    .usecase-panel.active {
+      opacity: 1;
+      visibility: visible;
+      position: relative;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .usecase-copy .usecase-tag {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(26,122,74,0.08);
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .usecase-copy .usecase-headline {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.2vw, 40px);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--dark);
+      margin-bottom: 18px;
+    }
+    .usecase-copy .usecase-sub {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--muted-on-light);
+      margin-bottom: 28px;
+      max-width: 500px;
+    }
+    .usecase-wins {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .usecase-wins li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-family: var(--font-body);
+      font-size: 14.5px;
+      color: var(--dark);
+      line-height: 1.5;
+    }
+    .usecase-wins li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      border-radius: 50%;
+      background: var(--accent);
+      mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='black' d='M6.3 11.3 3 8l1.4-1.4 1.9 1.9 5.3-5.3L13 4.6z'/></svg>") center/12px no-repeat;
+      -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='black' d='M6.3 11.3 3 8l1.4-1.4 1.9 1.9 5.3-5.3L13 4.6z'/></svg>") center/12px no-repeat;
+    }
+
+    .usecase-image {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      background: #f0eee8;
+      box-shadow: 0 30px 60px -30px rgba(0,0,0,0.25);
+    }
+    .usecase-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* ============================================
@@ -1361,6 +1639,9 @@
        RESPONSIVE
     ============================================ */
     @media (max-width: 1100px) {
+      .hero { grid-template-columns: 1fr; gap: 56px; }
+      .hero-content { max-width: none; }
+      .hero-creative { max-width: 720px; margin: 0 auto; width: 100%; }
       .product-inner { gap: 48px; }
       .section-deserves { grid-template-columns: 1fr; gap: 56px; }
       .why-item { padding: 0 32px 0 0; }
@@ -1392,7 +1673,13 @@
       .product-features { grid-template-columns: 1fr; }
       .industries-grid { grid-template-columns: 1fr; }
       .section-industries,
-      .section-pricing-statement { padding-left: 24px; padding-right: 24px; }
+      .section-pricing-statement,
+      .section-usecases { padding-left: 24px; padding-right: 24px; }
+      .section-usecases { padding-top: 72px; padding-bottom: 72px; }
+      .usecase-panel { grid-template-columns: 1fr; gap: 32px; }
+      .usecase-panel .usecase-image { order: -1; }
+      .usecase-tabs { display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .usecase-tab { font-size: 13px; padding: 10px 16px; }
       .why-grid { grid-template-columns: 1fr; gap: 48px; }
       .why-item,
       .why-item:last-child,
@@ -1400,6 +1687,258 @@
       .why-item:last-child { border-bottom: none; padding-bottom: 0; }
       .section-cta { grid-template-columns: 1fr; text-align: center; justify-items: center; }
       footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+      .section-products-tabbed { padding-left: 24px; padding-right: 24px; padding-top: 72px; padding-bottom: 72px; }
+      .products-panel { grid-template-columns: 1fr; gap: 32px; }
+      .products-panel .products-image { order: -1; }
+      .products-tabs { display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .products-tab { font-size: 13px; padding: 10px 16px; }
+    }
+
+    /* ============================================
+       PRODUCTS TABBED SECTION
+    ============================================ */
+    .section-products-tabbed {
+      background: var(--light);
+      padding: 112px 80px;
+    }
+    .products-tabbed-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .products-tabbed-header {
+      max-width: 760px;
+      margin-bottom: 48px;
+    }
+    .pricing-highlights {
+      display: flex;
+      gap: 20px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+    .pricing-highlight-card {
+      flex: 1;
+      min-width: 220px;
+      background: var(--white);
+      border: 1.5px solid rgba(26,122,74,0.2);
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .pricing-highlight-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .pricing-highlight-price {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 800;
+      line-height: 1;
+      color: var(--dark);
+    }
+    .pricing-highlight-price sup {
+      font-size: 0.45em;
+      font-weight: 700;
+      vertical-align: super;
+    }
+    .pricing-highlight-price span {
+      font-size: 0.35em;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .pricing-highlight-desc {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+    .pricing-no-contract {
+      margin-top: 20px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .pricing-no-contract span::before {
+      content: "✓ ";
+      color: var(--accent);
+      font-weight: 700;
+    }
+    @media (max-width: 600px) {
+      .pricing-highlights { flex-direction: column; }
+    }
+    .products-tabbed-header .section-eyebrow {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .products-tabbed-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--dark);
+      margin-bottom: 14px;
+    }
+    .products-tabbed-title .accent { color: var(--accent); font-style: italic; }
+    .products-tabbed-sub {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .products-tabs {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      background: rgba(20,20,20,0.06);
+      border-radius: 40px;
+      padding: 6px;
+      gap: 2px;
+      margin-bottom: 40px;
+    }
+    .products-tab {
+      position: relative;
+      z-index: 2;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 10px 22px;
+      border-radius: 32px;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .products-tab:hover { color: var(--dark); }
+    .products-tab.active { color: var(--white); }
+    .products-tab-indicator {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      height: calc(100% - 12px);
+      background: var(--dark);
+      border-radius: 32px;
+      transition: transform 0.32s cubic-bezier(.4,0,.2,1), width 0.32s cubic-bezier(.4,0,.2,1);
+      z-index: 1;
+    }
+
+    .products-panels { position: relative; }
+    .products-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      gap: 80px;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .products-panel.active {
+      opacity: 1;
+      visibility: visible;
+      position: relative;
+      pointer-events: auto;
+    }
+    .products-tag {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(26,122,74,0.08);
+      border: 1px solid rgba(26,122,74,0.2);
+      border-radius: 4px;
+      padding: 4px 10px;
+      margin-bottom: 18px;
+    }
+    .products-headline {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3vw, 40px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+    .products-price {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 14px;
+      letter-spacing: 0.01em;
+    }
+    .products-desc {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      max-width: 480px;
+    }
+    .products-wins {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .products-wins li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--dark);
+      line-height: 1.5;
+    }
+    .products-wins li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      margin-top: 1px;
+      background: var(--accent);
+      border-radius: 50%;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8l3.5 3.5L13 5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8l3.5 3.5L13 5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+    .products-image {
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+    }
+    .products-image img {
+      width: 100%;
+      height: auto;
+      max-height: 380px;
+      object-fit: contain;
+      display: block;
     }
   </style>
 </head>
@@ -1459,399 +1998,274 @@
       </div>
     </div>
 
+    <div class="hero-creative" aria-hidden="true">
+      <iframe src="assets/hero-creative.html" title="Fleet monitoring visual" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+    </div>
+
   </section>
 
-  <!-- TRUST BAR -->
-  <section class="trust-bar">
-    <div class="trust-item reveal">
-      <div class="trust-divider"></div>
-      <div class="trust-number"><span class="trust-count" data-target="20">0</span><span class="acc">+</span></div>
-      <div class="trust-label">Years in GPS &amp; Fleet Technology</div>
-    </div>
-    <div class="trust-item reveal">
-      <div class="trust-divider"></div>
-      <div class="trust-number text-size">Multi<span class="acc">-</span>Vendor</div>
-      <div class="trust-label">Expertise Across Leading Platforms</div>
-    </div>
-    <div class="trust-item reveal">
-      <div class="trust-divider"></div>
-      <div class="trust-number text-size">Local<span class="acc">.</span></div>
-      <div class="trust-label">Installation Teams in Your Market</div>
-    </div>
-    <div class="trust-item reveal">
-      <div class="trust-divider"></div>
-      <div class="trust-number text-size">Same<span class="acc"> </span>Person</div>
-      <div class="trust-label">On the Phone, Every Single Time</div>
-    </div>
-  </section>
-
-  <!-- SOLUTIONS GRID -->
-  <section class="section-solutions" id="solutions">
-    <div class="section-header">
-      <p class="section-eyebrow">What We Offer</p>
-      <h2 class="section-title reveal">Fleet Technology <span class="accent">Solutions</span><br>We Represent</h2>
-      <p class="section-sub reveal">We help businesses select and deploy proven vehicle tracking, camera, and asset monitoring systems across commercial industries.</p>
-    </div>
-    <div class="solutions-grid">
-
-      <!-- Vehicle Tracking -->
-      <div class="solution-card reveal">
-        <div class="solution-illustration">
-          <svg viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M60 6 C55 6 50 10 50 16 C50 22 60 32 60 32 C60 32 70 22 70 16 C70 10 65 6 60 6 Z" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.8"/>
-            <circle cx="60" cy="16" r="4" fill="var(--accent)"/>
-            <path d="M52 10 C53.5 6 56.5 4 60 4 C63.5 4 66.5 6 68 10" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/>
-            <path d="M48 8 C50 2 54.5 -1 60 -1 C65.5 -1 70 2 72 8" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.25" transform="translate(0,5)"/>
-            <line x1="60" y1="32" x2="60" y2="46" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="3 3"/>
-            <rect x="10" y="46" width="72" height="24" rx="4" stroke="#141414" stroke-width="2"/>
-            <path d="M82 54 L82 70 L98 70 L98 62 L90 54 Z" stroke="#141414" stroke-width="2" stroke-linejoin="round"/>
-            <path d="M83 55 L83 62 L97 62 L97 62 L90 55 Z" fill="rgba(26,122,74,0.12)" stroke="#141414" stroke-width="1.5"/>
-            <circle cx="26" cy="72" r="6" stroke="#141414" stroke-width="2"/><circle cx="26" cy="72" r="2.5" fill="#141414"/>
-            <circle cx="62" cy="72" r="6" stroke="#141414" stroke-width="2"/><circle cx="62" cy="72" r="2.5" fill="#141414"/>
-            <circle cx="90" cy="72" r="6" stroke="#141414" stroke-width="2"/><circle cx="90" cy="72" r="2.5" fill="#141414"/>
-          </svg>
-        </div>
-        <div class="solution-card-title">Vehicle Tracking</div>
-        <div class="solution-card-desc">Real-time GPS, route monitoring, driver behavior insights, and geofencing for commercial vehicle fleets.</div>
-        <a href="https://accudigital.wixstudio.com/my-site-8/vehicle-tracking" target="_top" class="solution-card-link">
-          Learn More
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7.5 3l3.5 3.5-3.5 3.5"/></svg>
-        </a>
-      </div>
-
-      <!-- Camera Systems -->
-      <div class="solution-card reveal">
-        <div class="solution-illustration">
-          <svg viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="18" y="26" width="68" height="46" rx="8" stroke="#141414" stroke-width="2"/>
-            <circle cx="52" cy="49" r="16" stroke="#141414" stroke-width="2"/>
-            <circle cx="52" cy="49" r="10" stroke="#141414" stroke-width="1.5"/>
-            <circle cx="52" cy="49" r="5" fill="rgba(26,122,74,0.18)" stroke="var(--accent)" stroke-width="1.5"/>
-            <circle cx="49" cy="46" r="2" fill="rgba(255,255,255,0.5)"/>
-            <rect x="74" y="20" width="14" height="10" rx="3" stroke="#141414" stroke-width="1.8"/>
-            <circle cx="81" cy="25" r="3" fill="var(--accent)"/>
-            <circle cx="82" cy="52" r="2.5" fill="var(--accent)" opacity="0.8"/>
-            <circle cx="78" cy="62" r="2.5" fill="var(--accent)" opacity="0.6"/>
-            <circle cx="86" cy="62" r="2.5" fill="var(--accent)" opacity="0.6"/>
-            <line x1="82" y1="52" x2="78" y2="62" stroke="var(--accent)" stroke-width="1.2" opacity="0.5"/>
-            <line x1="82" y1="52" x2="86" y2="62" stroke="var(--accent)" stroke-width="1.2" opacity="0.5"/>
-          </svg>
-        </div>
-        <div class="solution-card-title">Camera Systems</div>
-        <div class="solution-card-desc">AI dash cameras, ADAS, driver state monitoring, and multi-camera platforms for safety and liability protection.</div>
-        <a href="https://accudigital.wixstudio.com/my-site-8/camera-systems" target="_top" class="solution-card-link">
-          Learn More
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7.5 3l3.5 3.5-3.5 3.5"/></svg>
-        </a>
-      </div>
-
-      <!-- Asset Tracking -->
-      <div class="solution-card reveal">
-        <div class="solution-illustration">
-          <svg viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="12" y="36" width="84" height="32" rx="4" stroke="#141414" stroke-width="2"/>
-            <line x1="36" y1="36" x2="36" y2="68" stroke="#141414" stroke-width="1.2" opacity="0.2"/>
-            <line x1="60" y1="36" x2="60" y2="68" stroke="#141414" stroke-width="1.2" opacity="0.2"/>
-            <line x1="84" y1="36" x2="84" y2="68" stroke="#141414" stroke-width="1.2" opacity="0.2"/>
-            <circle cx="32" cy="70" r="6" stroke="#141414" stroke-width="2"/><circle cx="32" cy="70" r="2.5" fill="#141414"/>
-            <circle cx="76" cy="70" r="6" stroke="#141414" stroke-width="2"/><circle cx="76" cy="70" r="2.5" fill="#141414"/>
-            <rect x="46" y="24" width="22" height="13" rx="3" fill="var(--accent)" stroke="var(--accent)" stroke-width="1"/>
-            <circle cx="57" cy="30" r="2" fill="white" opacity="0.8"/>
-            <line x1="63" y1="24" x2="67" y2="16" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M70 20 C71 18 72 17 73 17" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.7"/>
-            <path d="M69 17 C71 14 74 13 76 14" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.4"/>
-          </svg>
-        </div>
-        <div class="solution-card-title">Asset Tracking</div>
-        <div class="solution-card-desc">LTE tracking for trailers, containers, and non-powered assets with magnetic deployment and long-life battery.</div>
-        <a href="https://accudigital.wixstudio.com/my-site-8/asset-tracking" target="_top" class="solution-card-link">
-          Learn More
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7.5 3l3.5 3.5-3.5 3.5"/></svg>
-        </a>
-      </div>
-
-      <!-- Integrated Fleet Solutions -->
-      <div class="solution-card reveal">
-        <div class="solution-illustration">
-          <svg viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="60" cy="45" r="14" stroke="var(--accent)" stroke-width="2" fill="rgba(26,122,74,0.08)"/>
-            <circle cx="60" cy="45" r="6" fill="var(--accent)"/>
-            <circle cx="22" cy="18" r="9" stroke="#141414" stroke-width="1.5" fill="var(--light)"/>
-            <path d="M20 16 C20 14 21 13 22 13 C23 13 24 14 24 16 C24 18 22 20 22 20 C22 20 20 18 20 16 Z" fill="var(--accent)" opacity="0.8"/>
-            <line x1="30" y1="25" x2="47" y2="37" stroke="#141414" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.4"/>
-            <circle cx="98" cy="18" r="9" stroke="#141414" stroke-width="1.5" fill="var(--light)"/>
-            <rect x="94" y="15" width="8" height="6" rx="1.5" stroke="var(--accent)" stroke-width="1.2" opacity="0.8"/>
-            <circle cx="98" cy="18" r="1.5" fill="var(--accent)" opacity="0.8"/>
-            <line x1="90" y1="25" x2="73" y2="37" stroke="#141414" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.4"/>
-            <circle cx="22" cy="72" r="9" stroke="#141414" stroke-width="1.5" fill="var(--light)"/>
-            <rect x="18" y="68" width="8" height="7" rx="1" stroke="var(--accent)" stroke-width="1.2" opacity="0.8"/>
-            <line x1="30" y1="65" x2="47" y2="53" stroke="#141414" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.4"/>
-            <circle cx="98" cy="72" r="9" stroke="#141414" stroke-width="1.5" fill="var(--light)"/>
-            <path d="M94 74 L96 70 L98 72 L100 68 L102 70" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
-            <line x1="90" y1="65" x2="73" y2="53" stroke="#141414" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.4"/>
-          </svg>
-        </div>
-        <div class="solution-card-title">Integrated Fleet Solutions</div>
-        <div class="solution-card-desc">ELD compliance, fleet reporting, driver analytics, IFTA management, and real-time alerts in one unified platform.</div>
-        <a href="https://accudigital.wixstudio.com/my-site-8/integrated-solutions" target="_top" class="solution-card-link">
-          Learn More
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5h9M7.5 3l3.5 3.5-3.5 3.5"/></svg>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PRICING STATEMENT -->
-  <section class="section-pricing-statement">
-    <div class="pricing-statement-inner">
-      <p class="section-eyebrow">Pricing</p>
-      <h2 class="section-title reveal">Enterprise-grade tracking.<br><span class="accent">Without the enterprise price.</span></h2>
-      <p class="section-sub reveal" style="text-align:center;max-width:520px;margin:18px auto 0;">Most fleets are overpaying for technology they don't need. JMS keeps it straightforward: best-in-class hardware, starting at $8.25 a month. No long-term contracts. No hidden fees.</p>
-    </div>
-  </section>
-
-  <!-- PRODUCT SECTIONS -->
-
-  <!-- Vehicle Tracking -->
-  <section class="section-product bg-white">
-    <div class="product-inner">
-      <div class="product-text reveal">
-        <p class="product-eyebrow">Vehicle Tracking</p>
-        <h2 class="product-headline">Know Where Every<br>Vehicle Is, Right Now</h2>
-        <p class="product-price">$8.25 / month &nbsp;·&nbsp; or $99 / year per device</p>
-        <p class="product-desc">Real-time GPS tracking built for commercial fleets. OBD plug-in and hardwired options available. JMS matches you with the right hardware and keeps every vehicle visible around the clock.</p>
-        <div class="product-features">
-          <div class="product-feature">Real-time GPS location</div>
-          <div class="product-feature">Geofencing &amp; alerts</div>
-          <div class="product-feature">Trip replay &amp; history</div>
-          <div class="product-feature">OBD &amp; hardwired options</div>
-          <div class="product-feature">Driver behaviour monitoring</div>
-          <div class="product-feature">Ignition on/off events</div>
-        </div>
-        <a href="https://accudigital.wixstudio.com/my-site-8/vehicle-tracking" target="_top" class="btn-primary">Learn More</a>
-      </div>
-      <div class="product-image reveal">
-        <img src="assets/OBD_Main.png" alt="OBD Vehicle GPS Tracker" onerror="this.style.opacity='0'">
-      </div>
-    </div>
-  </section>
-
-  <!-- Camera Systems -->
-  <section class="section-product bg-light">
+  <!-- ALL-IN-ONE CAMERA SPOTLIGHT -->
+  <section class="section-product bg-white" id="all-in-one-camera">
     <div class="product-inner flip">
-      <div class="product-text reveal">
-        <p class="product-eyebrow">Camera Systems</p>
-        <h2 class="product-headline">Protect Your Drivers<br>and Your Business</h2>
-        <p class="product-price">Custom pricing, tailored to your fleet</p>
-        <p class="product-desc">AI-powered dash cameras that do more than record. JMS deploys multi-camera setups with incident detection, driver coaching, and secure cloud storage for full liability protection.</p>
-        <div class="product-features">
-          <div class="product-feature">Incident clip capture</div>
-          <div class="product-feature">Live &amp; recorded footage</div>
-          <div class="product-feature">AI driver behaviour scoring</div>
-          <div class="product-feature">Secure cloud storage</div>
-          <div class="product-feature">ADAS &amp; forward collision alerts</div>
-          <div class="product-feature">Driver state monitoring</div>
-        </div>
-        <a href="https://accudigital.wixstudio.com/my-site-8/contact" target="_top" class="btn-primary">Get in Touch</a>
-      </div>
       <div class="product-image reveal">
-        <img src="assets/hero-dashcam-mockup.png" alt="AI Dashcam System" onerror="this.style.opacity='0'">
+        <img src="assets/camera-allinone.jpg" alt="JMS All-in-One AI Dash Camera" onerror="this.style.opacity='0'">
       </div>
-    </div>
-  </section>
-
-  <!-- Powered Asset Tracking -->
-  <section class="section-product bg-white">
-    <div class="product-inner">
       <div class="product-text reveal">
-        <p class="product-eyebrow">Asset Tracking — Powered</p>
-        <h2 class="product-headline">Track Equipment<br>That Runs on Power</h2>
-        <p class="product-price">$8.25 / month &nbsp;·&nbsp; or $99 / year per device</p>
-        <p class="product-desc">OBD and hardwired trackers for powered equipment: forklifts, generators, trucks, and more. Real-time location, ignition events, and utilisation reports, all on the same platform as your vehicle fleet.</p>
-        <div class="product-features">
-          <div class="product-feature">OBD &amp; hardwired options</div>
-          <div class="product-feature">Geofencing &amp; utilisation alerts</div>
-          <div class="product-feature">Real-time location &amp; ignition data</div>
-          <div class="product-feature">Engine hours reporting</div>
-          <div class="product-feature">Same platform as vehicle tracking</div>
-          <div class="product-feature">Low power alerts</div>
+        <p class="product-eyebrow">Spotlight · All-in-One Camera</p>
+        <h2 class="product-headline">Road and cab,<br><span style="color:var(--accent);font-style:italic;">in a single camera.</span></h2>
+        <div class="camera-price-badge">
+          <span class="camera-price-from">As low as</span>
+          <span class="camera-price-amount">$29.95<span>/mo per vehicle</span></span>
+          <span class="camera-price-note">Hardware, installation & unlimited data included</span>
         </div>
-        <a href="https://accudigital.wixstudio.com/my-site-8/asset-tracking" target="_top" class="btn-primary">Learn More</a>
-      </div>
-      <div class="product-image reveal">
-        <img src="assets/LTE_Main.png" alt="Powered Asset Tracker" onerror="this.style.opacity='0'">
+        <p class="product-desc">An AI-powered dual-lens dash cam that covers the road and the driver in one unit. Built for service, delivery, and mixed commercial fleets that need complete visibility without juggling multiple devices per vehicle.</p>
+        <div class="camera-feature-groups">
+          <div class="camera-feature-group">
+            <div class="camera-feature-group-title">What's included</div>
+            <ul>
+              <li>All-in-One camera hardware</li>
+              <li>Professional installation</li>
+              <li>Full 3-year warranty</li>
+              <li>US-based tech support</li>
+              <li>Unlimited data and streaming</li>
+              <li>Up to 4 weeks on-device storage</li>
+              <li>1-year cloud clip storage</li>
+            </ul>
+          </div>
+          <div class="camera-feature-group">
+            <div class="camera-feature-group-title">AI detection events</div>
+            <ul>
+              <li>Drowsiness and distraction</li>
+              <li>Phone use while driving</li>
+              <li>Forward collision warning</li>
+              <li>Following too close</li>
+              <li>Smoking detection</li>
+              <li>Unauthorized driver alert</li>
+            </ul>
+          </div>
+        </div>
+        <a href="https://accudigital.wixstudio.com/my-site-8/camera-systems" target="_top" class="btn-primary">Explore Camera Systems
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Non-Powered Asset Tracking -->
-  <section class="section-product bg-light">
-    <div class="product-inner flip">
-      <div class="product-text reveal">
-        <p class="product-eyebrow">Asset Tracking — Non-Powered</p>
-        <h2 class="product-headline">Find Every Trailer,<br>Every Time</h2>
-        <p class="product-price">$8.25 / month &nbsp;·&nbsp; or $99 / year per device</p>
-        <p class="product-desc">Magnetic, battery-powered trackers for trailers, containers, and yard equipment. No wiring, no hassle. Deploy in seconds and track assets that never plug in.</p>
-        <div class="product-features">
-          <div class="product-feature">Magnetic, battery-powered</div>
-          <div class="product-feature">Configurable ping frequency</div>
-          <div class="product-feature">Trailer &amp; yard equipment tracking</div>
-          <div class="product-feature">Long battery life</div>
-          <div class="product-feature">No wiring required</div>
-          <div class="product-feature">Theft detection &amp; alerts</div>
-        </div>
-        <a href="https://accudigital.wixstudio.com/my-site-8/asset-tracking" target="_top" class="btn-primary">Learn More</a>
-      </div>
-      <div class="product-image reveal">
-        <img src="assets/Magnetic-Asset-Tracker-2.png" alt="Non-Powered Magnetic Asset Tracker" onerror="this.style.opacity='0'">
-      </div>
-    </div>
-  </section>
-
-  <!-- Integrated Fleet Solutions (card retained for completeness) -->
-  <section class="section-product bg-white">
-    <div class="product-inner">
-      <div class="product-text reveal">
-        <p class="product-eyebrow">Integrated Fleet Solutions</p>
-        <h2 class="product-headline">Everything in One<br>Unified Platform</h2>
-        <p class="product-price">Included with your tracking subscription</p>
-        <p class="product-desc">GPS tracking, cameras, and asset monitoring on a single dashboard. Fleet reporting, driver analytics, and real-time alerts without juggling multiple systems.</p>
-        <div class="product-features">
-          <div class="product-feature">Fleet reporting &amp; analytics</div>
-          <div class="product-feature">Real-time alerts</div>
-          <div class="product-feature">Driver performance scoring</div>
-          <div class="product-feature">Multi-device dashboard</div>
-        </div>
-        <a href="https://accudigital.wixstudio.com/my-site-8/integrated-solutions" target="_top" class="btn-primary">Learn More</a>
-      </div>
-      <div class="product-image reveal">
-        <img src="assets/front_loader_final.png" alt="Integrated Fleet Platform" onerror="this.style.opacity='0'">
-      </div>
-    </div>
-  </section>
-
-  <!-- CAMERA SPOTLIGHT -->
-  <section class="section-spotlight dark">
-    <div class="spotlight-inner">
-      <div class="spotlight-carousel reveal" data-carousel>
-        <div class="carousel-track">
-          <div class="carousel-slide">
-            <img src="assets/hero-dashcam-mockup.png" alt="Multi-Device Dashboard with Dashcam">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/camera-multicam.png" alt="Multi-Camera Fleet System">
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/camera-dsm.png" alt="Driver State Monitoring Camera">
-          </div>
-        </div>
-        <button class="carousel-btn prev" aria-label="Previous">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="carousel-btn next" aria-label="Next">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-        <div class="carousel-dots">
-          <button class="carousel-dot active"></button>
-          <button class="carousel-dot"></button>
-          <button class="carousel-dot"></button>
-        </div>
-      </div>
-      <div class="spotlight-content reveal">
-        <p class="spotlight-eyebrow">Camera Systems</p>
-        <h2 class="spotlight-headline">See everything happening in and around your vehicles</h2>
-        <p class="spotlight-sub">From basic event recording to AI-powered driver coaching, JMS installs and supports the right camera setup for your fleet's risk profile.</p>
-        <div class="spotlight-features">
-          <div class="spotlight-feature">
-            <div class="spotlight-feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#1A7A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.89L15 14"/><rect x="3" y="8" width="12" height="8" rx="2"/>
-              </svg>
-            </div>
-            <div class="spotlight-feature-text">
-              <div class="spotlight-feature-title">Incident Documentation</div>
-              <div class="spotlight-feature-desc">Automatic clip capture on harsh braking, collisions, and road events, protecting your business before disputes arise.</div>
-            </div>
-          </div>
-          <div class="spotlight-feature">
-            <div class="spotlight-feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#1A7A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0112 0v2"/>
-              </svg>
-            </div>
-            <div class="spotlight-feature-text">
-              <div class="spotlight-feature-title">Driver Behaviour Monitoring</div>
-              <div class="spotlight-feature-desc">AI scoring and coaching tools that identify risky patterns and reduce incidents before they happen.</div>
-            </div>
-          </div>
-          <div class="spotlight-feature">
-            <div class="spotlight-feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#1A7A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-              </svg>
-            </div>
-            <div class="spotlight-feature-text">
-              <div class="spotlight-feature-title">Live &amp; Recorded Access</div>
-              <div class="spotlight-feature-desc">Review footage remotely, anytime, with secure cloud access across your entire fleet.</div>
-            </div>
-          </div>
-        </div>
-        <a href="https://accudigital.wixstudio.com/my-site-8/camera-systems" target="_top" class="btn-primary">Explore Camera Systems</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CAMERA IN ACTION -->
-  <section class="section-camera-inaction">
+  <!-- ALL-IN-ONE CAMERA DUAL VIEW -->
+  <section class="section-camera-inaction" id="all-in-one-dual-view">
     <div class="camera-inaction-inner">
-      <p class="camera-inaction-eyebrow">Camera Systems in Action</p>
-      <h2 class="camera-inaction-headline reveal">See what your fleet cameras actually capture</h2>
+      <p class="camera-inaction-eyebrow">Dual-Lens · In Action</p>
+      <h2 class="camera-inaction-headline reveal">Two views. One camera. Captured at the same moment.</h2>
       <div class="camera-inaction-grid">
 
         <div class="camera-inaction-card reveal">
           <div class="camera-inaction-img-wrap">
             <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
-              <source src="assets/Trip-replay.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="camera-inaction-title">Stream Live</div>
-          <div class="camera-inaction-desc">View any camera on your fleet in real time. Stream up to 4 cameras from the same vehicle simultaneously and save clips for review.</div>
-        </div>
-
-        <div class="camera-inaction-card reveal">
-          <div class="camera-inaction-img-wrap">
-            <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
-              <source src="assets/Review-mode.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="camera-inaction-title">Review Footage</div>
-          <div class="camera-inaction-desc">Access any recorded clip from your fleet's cloud storage. Search by date, event, or vehicle without physically touching the device.</div>
-        </div>
-
-        <div class="camera-inaction-card reveal">
-          <div class="camera-inaction-img-wrap">
-            <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
-              <source src="assets/Incab-view.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="camera-inaction-title">In-Cab View</div>
-          <div class="camera-inaction-desc">Driver-facing cameras monitor fatigue, distraction, and phone use. Compact, unobtrusive mounts that fit any cab configuration.</div>
-        </div>
-
-        <div class="camera-inaction-card reveal">
-          <div class="camera-inaction-img-wrap">
-            <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
-              <source src="assets/Roadside-view.mp4" type="video/mp4">
+              <source src="assets/ch1_20260520130339_20260520130345.mp4" type="video/mp4">
             </video>
           </div>
           <div class="camera-inaction-title">Road-Facing View</div>
-          <div class="camera-inaction-desc">High-resolution forward-facing footage for incident documentation, liability protection, and route verification.</div>
+          <div class="camera-inaction-desc">Forward channel records the road ahead, capturing context for incidents, near-misses, and route verification.</div>
+        </div>
+
+        <div class="camera-inaction-card reveal">
+          <div class="camera-inaction-img-wrap">
+            <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+              <source src="assets/ch2_20260520130339_20260520130345.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="camera-inaction-title">In-Cabin View</div>
+          <div class="camera-inaction-desc">Driver-facing channel monitors fatigue, distraction, and phone use, with both feeds time-synced for full event context.</div>
         </div>
 
       </div>
     </div>
   </section>
+
+  <!-- USE CASES -->
+  <section class="section-usecases" id="use-cases">
+    <div class="usecases-inner">
+      <div class="usecases-header">
+        <p class="section-eyebrow">How Fleets Use It</p>
+        <h2 class="usecases-title reveal">One platform, <span class="accent">built around how you operate</span></h2>
+        <p class="usecases-sub reveal">Whether your team is on the road, at a job site, or managing a yard, JMS fits the way your fleet actually works.</p>
+      </div>
+
+      <div class="usecase-tabs" role="tablist" aria-label="Use cases">
+        <span class="usecase-tab-indicator" aria-hidden="true"></span>
+        <button class="usecase-tab active" data-tab="construction" role="tab" aria-selected="true">At the Job Site</button>
+        <button class="usecase-tab" data-tab="field-service" role="tab" aria-selected="false">On the Road</button>
+        <button class="usecase-tab" data-tab="logistics" role="tab" aria-selected="false">Managing the Yard</button>
+      </div>
+
+      <div class="usecase-panels">
+
+        <div class="usecase-panel active" data-panel="construction" role="tabpanel">
+          <div class="usecase-copy">
+            <span class="usecase-tag">At the Job Site</span>
+            <h3 class="usecase-headline">Every asset, every site, accounted for.</h3>
+            <p class="usecase-sub">Track powered equipment and vehicles across active locations. Know what ran, what idled, and what moved off the yard.</p>
+            <ul class="usecase-wins">
+              <li>Real-time location across multiple sites</li>
+              <li>Engine hours and idle time per machine</li>
+              <li>Geofence alerts for after-hours movement</li>
+              <li>Yard-to-site asset accountability</li>
+            </ul>
+          </div>
+          <div class="usecase-image">
+            <img src="assets/use_case_construction.png" alt="Equipment tracked across an active job site" onerror="this.style.opacity='0'">
+          </div>
+        </div>
+
+        <div class="usecase-panel" data-panel="field-service" role="tabpanel">
+          <div class="usecase-copy">
+            <span class="usecase-tag">On the Road</span>
+            <h3 class="usecase-headline">Dispatch tighter, prove every stop.</h3>
+            <p class="usecase-sub">Vehicles moving between stops all day. Real-time visibility, accurate ETAs, and a clear record of who was where, and for how long.</p>
+            <ul class="usecase-wins">
+              <li>Live locations and accurate ETAs</li>
+              <li>Stop history with time-on-site per address</li>
+              <li>Driver behaviour scoring across the day</li>
+              <li>Geofences and arrival alerts per location</li>
+            </ul>
+          </div>
+          <div class="usecase-image">
+            <img src="assets/use_case_field_service.png" alt="Fleet vehicles tracked across customer stops" onerror="this.style.opacity='0'">
+          </div>
+        </div>
+
+        <div class="usecase-panel" data-panel="logistics" role="tabpanel">
+          <div class="usecase-copy">
+            <span class="usecase-tag">Managing the Yard</span>
+            <h3 class="usecase-headline">Full control before the truck leaves.</h3>
+            <p class="usecase-sub">Trailers, containers, and non-powered assets sitting or moving through your yard. Know what is where, how long it has been there, and when it last moved.</p>
+            <ul class="usecase-wins">
+              <li>Trailer and asset location across your yard</li>
+              <li>Dwell time and idle asset reporting</li>
+              <li>Entry and exit alerts at yard boundaries</li>
+              <li>Battery-powered tracking, no hardwire needed</li>
+            </ul>
+          </div>
+          <div class="usecase-image">
+            <img src="assets/use_case_logistics.png" alt="Yard and asset tracking for fleet operations" onerror="this.style.opacity='0'">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS + PRICING -->
+  <section class="section-products-tabbed" id="our-products">
+    <div class="products-tabbed-inner">
+
+      <div class="products-tabbed-header">
+        <p class="section-eyebrow">Pricing</p>
+        <h2 class="products-tabbed-title reveal">Enterprise-grade tracking.<br><span class="accent">Without the enterprise price.</span></h2>
+        <p class="products-tabbed-sub reveal">Most fleets are overpaying for technology they don't need. JMS keeps it simple: best-in-class hardware, professional installation, and ongoing support.</p>
+        <div class="pricing-highlights">
+          <div class="pricing-highlight-card">
+            <div class="pricing-highlight-label">GPS &amp; Asset Tracking</div>
+            <div class="pricing-highlight-price"><sup>$</sup>8.25<span>/mo per vehicle</span></div>
+            <div class="pricing-highlight-desc">Real-time GPS, geofencing, trip replay, and driver behaviour. OBD plug-in or hardwired. Hardware included.</div>
+          </div>
+          <div class="pricing-highlight-card">
+            <div class="pricing-highlight-label">Camera Systems</div>
+            <div class="pricing-highlight-price"><sup>$</sup>29.95<span>/mo per vehicle</span></div>
+            <div class="pricing-highlight-desc">AI dash cameras with incident detection, driver coaching, and unlimited cloud storage. Multi-camera setups available.</div>
+          </div>
+        </div>
+        <div class="pricing-no-contract">
+          <span>No long-term contracts</span>
+          <span>No hidden fees</span>
+          <span>Hardware included</span>
+          <span>Professional installation</span>
+        </div>
+      </div>
+
+      <div class="products-tabs" role="tablist" aria-label="Products">
+        <span class="products-tab-indicator" aria-hidden="true"></span>
+        <button class="products-tab active" data-ptab="cameras" role="tab" aria-selected="true">Camera Systems</button>
+        <button class="products-tab" data-ptab="gps" role="tab" aria-selected="false">Vehicle Tracking</button>
+        <button class="products-tab" data-ptab="asset" role="tab" aria-selected="false">Asset Tracking</button>
+      </div>
+
+      <div class="products-panels">
+
+        <!-- Camera Systems -->
+        <div class="products-panel active" data-ppanel="cameras" role="tabpanel">
+          <div class="products-copy">
+            <span class="products-tag">Camera Systems</span>
+            <h3 class="products-headline">Protect your drivers.<br>Protect your business.</h3>
+            <p class="products-price">As low as $29.95/mo</p>
+            <p class="products-desc">AI-powered dash cameras that do more than record. JMS deploys multi-camera setups with incident detection, driver coaching, and secure cloud storage for full liability protection.</p>
+            <ul class="products-wins">
+              <li>Hardware included</li>
+              <li>Professional installation</li>
+              <li>Unlimited data</li>
+              <li>No overage costs</li>
+              <li>AI driver behaviour functions</li>
+              <li>Incident clip capture and review</li>
+            </ul>
+            <a href="https://accudigital.wixstudio.com/my-site-8/camera-systems" target="_top" class="btn-primary">Learn More</a>
+          </div>
+          <div class="products-image">
+            <img src="assets/hero-dashcam-mockup.png" alt="AI Dashcam System" onerror="this.style.opacity='0'">
+          </div>
+        </div>
+
+        <!-- Vehicle Tracking -->
+        <div class="products-panel" data-ppanel="gps" role="tabpanel">
+          <div class="products-copy">
+            <span class="products-tag">Vehicle Tracking</span>
+            <h3 class="products-headline">Know where every<br>vehicle is, right now.</h3>
+            <p class="products-price">As low as $8.25/mo</p>
+            <p class="products-desc">Real-time GPS tracking built for commercial fleets. OBD plug-in and hardwired options available. JMS matches you with the right hardware and keeps every vehicle visible around the clock.</p>
+            <ul class="products-wins">
+              <li>Real-time GPS location</li>
+              <li>Geofencing and alerts</li>
+              <li>Trip replay and history</li>
+              <li>OBD and hardwired options</li>
+              <li>Driver behaviour monitoring</li>
+              <li>Ignition on/off events</li>
+            </ul>
+            <a href="https://accudigital.wixstudio.com/my-site-8/vehicle-tracking" target="_top" class="btn-primary">Learn More</a>
+          </div>
+          <div class="products-image">
+            <img src="assets/OBD_Main.png" alt="OBD Vehicle GPS Tracker" onerror="this.style.opacity='0'">
+          </div>
+        </div>
+
+        <!-- Asset Tracking -->
+        <div class="products-panel" data-ppanel="asset" role="tabpanel">
+          <div class="products-copy">
+            <span class="products-tag">Asset Tracking</span>
+            <h3 class="products-headline">Every trailer, every tool,<br>always accounted for.</h3>
+            <p class="products-price">As low as $8.25/mo</p>
+            <p class="products-desc">Powered and non-powered trackers for forklifts, generators, trailers, and yard equipment. No wiring needed for battery units. Runs on the same platform as your vehicle fleet.</p>
+            <ul class="products-wins">
+              <li>OBD and hardwired for powered equipment</li>
+              <li>Magnetic, battery-powered for trailers</li>
+              <li>Geofencing and utilisation alerts</li>
+              <li>Engine hours reporting</li>
+              <li>Theft detection and alerts</li>
+              <li>Same dashboard as vehicle tracking</li>
+            </ul>
+            <a href="https://accudigital.wixstudio.com/my-site-8/asset-tracking" target="_top" class="btn-primary">Learn More</a>
+          </div>
+          <div class="products-image">
+            <img src="assets/LTE_Main.png" alt="Asset Tracker" onerror="this.style.opacity='0'">
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+
 
   <!-- TRACKING SPOTLIGHT -->
   <!-- HOW IT WORKS -->
@@ -2006,6 +2420,30 @@
     </div>
   </section>
 
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <div class="trust-item reveal">
+      <div class="trust-divider"></div>
+      <div class="trust-number"><span class="trust-count" data-target="20">0</span><span class="acc">+</span></div>
+      <div class="trust-label">Years in GPS &amp; Fleet Technology</div>
+    </div>
+    <div class="trust-item reveal">
+      <div class="trust-divider"></div>
+      <div class="trust-number text-size">Multi<span class="acc">-</span>Vendor</div>
+      <div class="trust-label">Expertise Across Leading Platforms</div>
+    </div>
+    <div class="trust-item reveal">
+      <div class="trust-divider"></div>
+      <div class="trust-number text-size">Local<span class="acc">.</span></div>
+      <div class="trust-label">Installation Teams in Your Market</div>
+    </div>
+    <div class="trust-item reveal">
+      <div class="trust-divider"></div>
+      <div class="trust-number text-size">Same<span class="acc"> </span>Person</div>
+      <div class="trust-label">On the Phone, Every Single Time</div>
+    </div>
+  </section>
+
   <!-- MARQUEE TICKER -->
   <section class="section-marquee">
     <div class="marquee-track">
@@ -2060,6 +2498,85 @@
   <!-- JS ANIMATIONS -->
   <script>
     gsap.registerPlugin(ScrollTrigger);
+
+    // ---- Use case tabs ----
+    (function usecaseTabs(){
+      const wrap = document.querySelector('.usecase-tabs');
+      if (!wrap) return;
+      const tabs = Array.from(wrap.querySelectorAll('.usecase-tab'));
+      const indicator = wrap.querySelector('.usecase-tab-indicator');
+      const panels = document.querySelectorAll('.usecase-panel');
+      const moveIndicator = (tab) => {
+        if (!indicator || !tab) return;
+        const wrapRect = wrap.getBoundingClientRect();
+        const tabRect = tab.getBoundingClientRect();
+        indicator.style.width = tabRect.width + 'px';
+        indicator.style.transform = 'translateX(' + (tabRect.left - wrapRect.left - 6) + 'px)';
+      };
+      const activate = (tab) => {
+        tabs.forEach(t => {
+          const on = t === tab;
+          t.classList.toggle('active', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        const target = tab.dataset.tab;
+        panels.forEach(p => p.classList.toggle('active', p.dataset.panel === target));
+        moveIndicator(tab);
+      };
+      tabs.forEach(t => t.addEventListener('click', () => activate(t)));
+      const initial = wrap.querySelector('.usecase-tab.active') || tabs[0];
+      const init = () => moveIndicator(initial);
+      init();
+      window.addEventListener('resize', init);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(init);
+    })();
+
+    // ---- Products tabs ----
+    (function productsTabs(){
+      const wrap = document.querySelector('.products-tabs');
+      if (!wrap) return;
+      const tabs = Array.from(wrap.querySelectorAll('.products-tab'));
+      const indicator = wrap.querySelector('.products-tab-indicator');
+      const panels = document.querySelectorAll('.products-panel');
+      const moveIndicator = (tab) => {
+        if (!indicator || !tab) return;
+        const wrapRect = wrap.getBoundingClientRect();
+        const tabRect = tab.getBoundingClientRect();
+        indicator.style.width = tabRect.width + 'px';
+        indicator.style.transform = 'translateX(' + (tabRect.left - wrapRect.left - 6) + 'px)';
+      };
+      const activate = (tab) => {
+        tabs.forEach(t => {
+          const on = t === tab;
+          t.classList.toggle('active', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        const target = tab.dataset.ptab;
+        panels.forEach(p => p.classList.toggle('active', p.dataset.ppanel === target));
+        moveIndicator(tab);
+      };
+      tabs.forEach(t => t.addEventListener('click', () => activate(t)));
+      const initial = wrap.querySelector('.products-tab.active') || tabs[0];
+      const init = () => moveIndicator(initial);
+      init();
+      window.addEventListener('resize', init);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(init);
+    })();
+
+    // ---- Hero creative scale-to-fit ----
+    (function scaleHeroCreative(){
+      const wrap = document.querySelector('.hero-creative');
+      const frame = wrap && wrap.querySelector('iframe');
+      if (!wrap || !frame) return;
+      const apply = () => {
+        const s = wrap.clientWidth / 1600;
+        frame.style.transform = 'scale(' + s + ')';
+      };
+      apply();
+      if ('ResizeObserver' in window) new ResizeObserver(apply).observe(wrap);
+      else window.addEventListener('resize', apply);
+      frame.addEventListener('load', apply);
+    })();
 
     // ---- Hero entrance ----
     const tl = gsap.timeline({ delay: 0.25 });
