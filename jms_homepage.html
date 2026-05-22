@@ -1938,6 +1938,22 @@
       object-fit: contain;
       display: block;
     }
+    @media (max-width: 768px) {
+      .products-tabs {
+        display: flex;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .products-tabs::-webkit-scrollbar { display: none; }
+      .products-panel {
+        grid-template-columns: 1fr !important;
+        gap: 32px;
+      }
+      .products-panel .products-image { order: -1; }
+      .products-copy { max-width: 100%; }
+    }
   </style>
 </head>
 <body>
