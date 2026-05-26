@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Green rounded square background -->
+  <rect x="4" y="4" width="56" height="56" rx="14" ry="14" fill="#1A7A4A"/>
+
+  <!-- GPS pin, centered and scaled up -->
+  <g transform="translate(18, 10) scale(1.55)">
+    <path d="M9 0C5.13 0 2 3.13 2 7c0 5.25 7 15 7 15s7-9.75 7-15c0-3.87-3.13-7-7-7z" fill="white" fill-opacity="0.95"/>
+    <circle cx="9" cy="7" r="2.8" fill="#1A7A4A"/>
+  </g>
+</svg>
