@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" width="280" height="60">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&amp;display=swap');
+      .jms { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 800; fill: #ffffff; letter-spacing: -0.44px; }
+      .associates { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 700; fill: #ffffff; letter-spacing: 0.77px; }
+    </style>
+  </defs>
+
+  <!-- Icon background: green rounded square -->
+  <rect x="0" y="11" width="38" height="38" rx="10" ry="10" fill="#1A7A4A"/>
+
+  <!-- GPS pin inside icon -->
+  <g transform="translate(10, 16)">
+    <path d="M9 0C5.13 0 2 3.13 2 7c0 5.25 7 15 7 15s7-9.75 7-15c0-3.87-3.13-7-7-7z" fill="white" fill-opacity="0.95"/>
+    <circle cx="9" cy="7" r="2.8" fill="#1A7A4A"/>
+  </g>
+
+  <!-- JMS -->
+  <text x="50" y="36" class="jms">JMS</text>
+  <!-- Associates -->
+  <text x="50" y="50" class="associates">ASSOCIATES</text>
+</svg>
