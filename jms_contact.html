@@ -28,7 +28,7 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: var(--font-body);
-      background: var(--light);
+      background: var(--dark);
       color: var(--dark);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
@@ -690,20 +690,22 @@
       .to('.hero-headline', { opacity: 1, y: 0, duration: 0.85 }, '-=0.4')
       .to('.hero-sub',      { opacity: 1, y: 0, duration: 0.7  }, '-=0.5');
 
-    // ScrollTrigger reveals
-    gsap.utils.toArray('.reveal').forEach(el => {
-      gsap.to(el, {
-        opacity: 1,
-        y: 0,
-        duration: 0.75,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 88%',
-          toggleActions: 'play none none none'
-        }
-      });
-    });
+    // Scroll reveals (IntersectionObserver: works in full-height iframes)
+    (function() {
+      const reveals = Array.from(document.querySelectorAll('.reveal'));
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (!entry.isIntersecting) return;
+            gsap.to(entry.target, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' });
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.12 });
+        reveals.forEach(el => observer.observe(el));
+      } else {
+        reveals.forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+      }
+    })();
 
     // Form submit handler (prototype: shows success state)
     function handleSubmit(e) {

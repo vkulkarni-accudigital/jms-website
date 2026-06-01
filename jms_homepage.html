@@ -33,7 +33,7 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: var(--font-body);
-      background: var(--light);
+      background: var(--dark);
       color: var(--dark);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
@@ -2598,62 +2598,69 @@
       .to('.hero-sub',      { opacity: 1, duration: 0.7,  ease: 'power2.out' }, '-=0.25')
       .to('.hero-cta-row',  { opacity: 1, duration: 0.65, ease: 'power2.out' }, '-=0.4');
 
-    // ---- Scroll reveals ----
-    gsap.utils.toArray('.reveal').forEach((el, i) => {
-      gsap.to(el, {
-        opacity: 1,
-        y: 0,
-        duration: 0.72,
-        ease: 'power3.out',
-        delay: (i % 4) * 0.07,
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 88%',
-          toggleActions: 'play none none none'
-        }
-      });
-    });
+    // ---- Scroll reveals (IntersectionObserver: works in full-height iframes) ----
+    (function() {
+      const reveals = Array.from(document.querySelectorAll('.reveal'));
+      function animateReveal(el) {
+        const i = reveals.indexOf(el);
+        gsap.to(el, { opacity: 1, y: 0, duration: 0.72, ease: 'power3.out', delay: (i % 4) * 0.07 });
+      }
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (!entry.isIntersecting) return;
+            animateReveal(entry.target);
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.12 });
+        reveals.forEach(el => observer.observe(el));
+      } else {
+        reveals.forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+      }
+    })();
 
     // ---- Count-up for years ----
-    ScrollTrigger.create({
-      trigger: '.trust-count',
-      start: 'top 85%',
-      onEnter: () => {
-        const el = document.querySelector('.trust-count');
-        const target = parseInt(el.dataset.target);
-        gsap.to({ val: 0 }, {
-          val: target,
-          duration: 1.6,
-          ease: 'power2.out',
-          onUpdate: function () {
-            el.textContent = Math.round(this.targets()[0].val);
-          }
-        });
-      }
-    });
+    (function() {
+      const el = document.querySelector('.trust-count');
+      if (!el) return;
+      const target = parseInt(el.dataset.target);
+      const run = () => gsap.to({ val: 0 }, {
+        val: target, duration: 1.6, ease: 'power2.out',
+        onUpdate: function() { el.textContent = Math.round(this.targets()[0].val); }
+      });
+      if ('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver(function(entries) {
+          if (entries[0].isIntersecting) { run(); obs.disconnect(); }
+        }, { threshold: 0.1 });
+        obs.observe(el);
+      } else { run(); }
+    })();
 
     // ---- How It Works steps ----
     (function() {
       var steps = document.querySelectorAll('.howitworks-step');
       var triggered = false;
-      ScrollTrigger.create({
-        trigger: '.howitworks-steps',
-        start: 'top 75%',
-        onEnter: function() {
-          if (triggered) return;
-          triggered = true;
-          var delays = [0, 1400, 2800];
-          steps.forEach(function(step, i) {
+      function runSteps() {
+        if (triggered) return;
+        triggered = true;
+        var delays = [0, 1400, 2800];
+        steps.forEach(function(step, i) {
+          setTimeout(function() {
+            step.classList.add('active');
             setTimeout(function() {
-              step.classList.add('active');
-              setTimeout(function() {
-                step.classList.remove('active');
-                step.classList.add('done');
-              }, 900);
-            }, delays[i]);
-          });
-        }
-      });
+              step.classList.remove('active');
+              step.classList.add('done');
+            }, 900);
+          }, delays[i]);
+        });
+      }
+      var container = document.querySelector('.howitworks-steps');
+      if (container && 'IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function(entries) {
+          if (entries[0].isIntersecting) { runSteps(); obs.disconnect(); }
+        }, { threshold: 0.2 });
+        obs.observe(container);
+      } else if (container) { runSteps(); }
     })();
 
     // ---- Carousels ----
