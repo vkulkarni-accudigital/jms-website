@@ -2710,5 +2710,30 @@
     })();
   </script>
 
+  <!-- IFRAME HEIGHT BRIDGE
+       Sends the page's true scroll height to the Wix parent frame so the
+       iframe widget resizes to full content height. This eliminates the
+       inner iframe scrollbar and lets the Wix page scrollbar cover everything.
+  -->
+  <script>
+    (function () {
+      function reportHeight() {
+        window.parent.postMessage(
+          { type: 'iframe-height', height: document.documentElement.scrollHeight },
+          '*'
+        );
+      }
+      window.addEventListener('load', function () {
+        reportHeight();
+        setTimeout(reportHeight, 500);
+        setTimeout(reportHeight, 1500);
+      });
+      window.addEventListener('resize', reportHeight);
+      if (window.ResizeObserver) {
+        new ResizeObserver(reportHeight).observe(document.body);
+      }
+    })();
+  </script>
+
 </body>
 </html>
