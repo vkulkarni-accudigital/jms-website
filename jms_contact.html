@@ -31,8 +31,11 @@
       background: var(--dark);
       color: var(--dark);
       overflow-x: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
       -webkit-font-smoothing: antialiased;
     }
+    body::-webkit-scrollbar { display: none; }
 
     /* NAV */
     nav {
