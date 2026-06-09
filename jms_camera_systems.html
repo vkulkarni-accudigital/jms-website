@@ -340,6 +340,60 @@
       color: var(--muted-on-light);
     }
 
+    /* MULTICAM SHOWCASE (Feature 03) */
+    .multicam-block {
+      grid-template-columns: 1fr 1.1fr;
+      gap: 64px;
+    }
+    .multicam-tablet img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .mc-accordion { margin-top: 4px; }
+    .mc-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .mc-item-head {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+    }
+    .mc-chevron {
+      flex-shrink: 0;
+      color: var(--muted-on-light);
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .mc-item.open .mc-chevron { transform: rotate(180deg); color: var(--accent); }
+    .mc-item-title {
+      font-family: var(--font-display);
+      font-size: clamp(17px, 1.8vw, 21px);
+      font-weight: 600;
+      color: var(--muted-on-light);
+      letter-spacing: -0.01em;
+      transition: color 0.3s ease;
+    }
+    .mc-item.open .mc-item-title { color: var(--accent); }
+    .mc-item-head:hover .mc-item-title { color: var(--dark); }
+    .mc-item-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .mc-item.open .mc-item-body { max-height: 260px; }
+    .mc-item-body p {
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--muted-on-light);
+      padding: 0 0 22px 34px;
+    }
+    .multicam-cta-row { margin-top: 40px; }
+
     /* PRODUCTS SECTION */
     .section-products {
       background: var(--light);
@@ -746,18 +800,63 @@
     </div>
 
     <!-- Multi-Camera -->
-    <div class="capability-block reveal">
-      <div class="capability-screenshot">
-        <img src="assets/camera-multicam.png" alt="Multi-Camera AI Platform View">
-      </div>
+    <div class="capability-block multicam-block reveal">
       <div class="capability-block-text">
         <p class="capability-block-label">Feature 03</p>
         <h3 class="capability-block-title">Multi-Camera &amp; AI Platforms</h3>
-        <div class="capability-block-body">
-          <p>Advanced camera platforms combine multiple viewpoints: forward, rear, side, and interior, delivering comprehensive vehicle visibility.</p>
-          <p>AI-driven systems enhance this visibility with real-time alerts for harsh braking, collision risk, distraction, and other high-impact driving events.</p>
-          <p>Designed for high-risk commercial operations including construction, logistics, and asset-intensive fleets.</p>
+        <div class="mc-accordion">
+          <div class="mc-item open">
+            <button class="mc-item-head" type="button">
+              <svg class="mc-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              <span class="mc-item-title">Live video at your fingertips</span>
+            </button>
+            <div class="mc-item-body">
+              <p>Stream road and cabin views from any vehicle in real time, straight from the fleet platform on desktop, tablet, or phone. You see what your driver sees, the moment you need to.</p>
+            </div>
+          </div>
+          <div class="mc-item">
+            <button class="mc-item-head" type="button">
+              <svg class="mc-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              <span class="mc-item-title">Every angle covered</span>
+            </button>
+            <div class="mc-item-body">
+              <p>Advanced camera platforms combine multiple viewpoints: forward, rear, side, and interior, delivering comprehensive vehicle visibility.</p>
+            </div>
+          </div>
+          <div class="mc-item">
+            <button class="mc-item-head" type="button">
+              <svg class="mc-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              <span class="mc-item-title">AI alerts that matter</span>
+            </button>
+            <div class="mc-item-body">
+              <p>AI-driven systems enhance this visibility with real-time alerts for harsh braking, collision risk, distraction, and other high-impact driving events.</p>
+            </div>
+          </div>
+          <div class="mc-item">
+            <button class="mc-item-head" type="button">
+              <svg class="mc-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              <span class="mc-item-title">Video paired with location</span>
+            </button>
+            <div class="mc-item-body">
+              <p>Every feed and event clip is tied to the live map, so you can see exactly where it happened and pull up trip history in one click.</p>
+            </div>
+          </div>
+          <div class="mc-item">
+            <button class="mc-item-head" type="button">
+              <svg class="mc-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              <span class="mc-item-title">Built for high-risk operations</span>
+            </button>
+            <div class="mc-item-body">
+              <p>Designed for high-risk commercial operations including construction, logistics, and asset-intensive fleets.</p>
+            </div>
+          </div>
         </div>
+        <div class="multicam-cta-row">
+          <a href="https://accudigital.wixstudio.com/my-site-8/contact" target="_top" class="btn-primary">Talk to a Specialist</a>
+        </div>
+      </div>
+      <div class="multicam-tablet">
+        <img src="assets/jms-tablet-live-camera.png" alt="Live camera feeds and map view on the JMS fleet platform">
       </div>
     </div>
   </section>
@@ -957,6 +1056,20 @@
         wrap.classList.remove('open');
       });
     })();
+  </script>
+
+  <!-- MULTICAM ACCORDION -->
+  <script>
+    document.querySelectorAll('.mc-item-head').forEach(function (head) {
+      head.addEventListener('click', function () {
+        var item = head.parentElement;
+        var wasOpen = item.classList.contains('open');
+        item.parentElement.querySelectorAll('.mc-item').forEach(function (i) {
+          i.classList.remove('open');
+        });
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
   </script>
 
   <!-- SCROLL TO SECTION -->
