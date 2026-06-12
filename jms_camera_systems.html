@@ -343,13 +343,16 @@
 
     /* MULTICAM SHOWCASE (Feature 03) */
     .multicam-block {
-      grid-template-columns: 1fr 1.1fr;
-      gap: 64px;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 48px;
     }
+    .multicam-tablet { overflow: visible; }
     .multicam-tablet img {
-      width: 100%;
+      width: 112%;
+      max-width: none;
       height: auto;
       display: block;
+      margin-left: -3%;
     }
     .mc-accordion { margin-top: 4px; }
     .mc-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
@@ -776,10 +779,34 @@
       <div class="capability-block-text">
         <p class="capability-block-label">Feature 01</p>
         <h3 class="capability-block-title">Road-Facing Video Recording</h3>
-        <div class="capability-block-body">
-          <p>Forward-view camera systems provide continuous roadway documentation, capturing incidents, traffic events, and environmental conditions in real time.</p>
-          <p>These solutions support liability protection, insurance claim validation, and structured event review across commercial fleet operations.</p>
-          <p>Common in delivery, service, and transportation fleets where documented roadway visibility is essential.</p>
+        <div class="mc-accordion">
+          <div class="mc-item open">
+            <button class="mc-item-head" type="button">
+              <svg class="mc-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              <span class="mc-item-title">Always-on roadway documentation</span>
+            </button>
+            <div class="mc-item-body">
+              <p>Forward-view camera systems provide continuous roadway documentation, capturing incidents, traffic events, and environmental conditions in real time.</p>
+            </div>
+          </div>
+          <div class="mc-item">
+            <button class="mc-item-head" type="button">
+              <svg class="mc-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              <span class="mc-item-title">Liability and claim protection</span>
+            </button>
+            <div class="mc-item-body">
+              <p>These solutions support liability protection, insurance claim validation, and structured event review across commercial fleet operations.</p>
+            </div>
+          </div>
+          <div class="mc-item">
+            <button class="mc-item-head" type="button">
+              <svg class="mc-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              <span class="mc-item-title">Built for everyday fleets</span>
+            </button>
+            <div class="mc-item-body">
+              <p>Common in delivery, service, and transportation fleets where documented roadway visibility is essential.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -792,10 +819,34 @@
       <div class="capability-block-text">
         <p class="capability-block-label">Feature 02</p>
         <h3 class="capability-block-title">In-Cabin &amp; Driver Monitoring</h3>
-        <div class="capability-block-body">
-          <p>In-cabin camera systems monitor driver behavior, distraction, and compliance in safety-sensitive environments.</p>
-          <p>When paired with AI-enabled event detection, these platforms help fleets reinforce safe driving practices, reduce risky behavior, and improve operational accountability.</p>
-          <p>Often deployed in transportation, utilities, and regulated fleet environments.</p>
+        <div class="mc-accordion">
+          <div class="mc-item open">
+            <button class="mc-item-head" type="button">
+              <svg class="mc-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              <span class="mc-item-title">Driver behavior monitoring</span>
+            </button>
+            <div class="mc-item-body">
+              <p>In-cabin camera systems monitor driver behavior, distraction, and compliance in safety-sensitive environments.</p>
+            </div>
+          </div>
+          <div class="mc-item">
+            <button class="mc-item-head" type="button">
+              <svg class="mc-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              <span class="mc-item-title">AI that reinforces safe habits</span>
+            </button>
+            <div class="mc-item-body">
+              <p>When paired with AI-enabled event detection, these platforms help fleets reinforce safe driving practices, reduce risky behavior, and improve operational accountability.</p>
+            </div>
+          </div>
+          <div class="mc-item">
+            <button class="mc-item-head" type="button">
+              <svg class="mc-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              <span class="mc-item-title">Trusted in regulated environments</span>
+            </button>
+            <div class="mc-item-body">
+              <p>Often deployed in transportation, utilities, and regulated fleet environments.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
