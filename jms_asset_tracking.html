@@ -574,6 +574,9 @@
     .footer-brand:hover .footer-logo-jms { opacity: 0.85; }
     .footer-contact { font-family: var(--font-body); font-size: 13px; color: var(--white); }
     .footer-contact a { color: var(--white); text-decoration: none; }
+    .footer-nav { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; justify-content: center; }
+    .footer-nav a { font-family: var(--font-body); font-size: 12.5px; color: var(--white); text-decoration: none; opacity: 0.85; transition: opacity 0.2s; }
+    .footer-nav a:hover { opacity: 1; text-decoration: underline; }
 
     /* PRICING BADGE */
     .hero-price-badge { display: flex; align-items: center; gap: 14px; margin-top: 20px; flex-wrap: wrap; opacity: 0; }
@@ -824,6 +827,15 @@
   <!-- FOOTER -->
   <footer>
     <a href="#" class="footer-brand" onclick="(window.self===window.top?window.scrollTo({top:0,behavior:'smooth'}):window.parent.postMessage({type:'scroll-to',y:0},'*'));return false;"><div class="footer-logo-icon"><svg width="26" height="30" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 0C5.13 0 2 3.13 2 7c0 5.25 7 15 7 15s7-9.75 7-15c0-3.87-3.13-7-7-7z" fill="white" fill-opacity="0.95"/><circle cx="9" cy="7" r="2.8" fill="#1A7A4A"/></svg></div><div class="footer-logo-text-wrap"><div class="footer-logo-name-row"><span class="footer-logo-jms">JMS</span><span class="footer-logo-associates">Associates</span></div><div class="footer-logo-tagline">Fleet Management Solution Provider</div></div></a>
+    <div class="footer-nav">
+      <a href="https://accudigital.wixstudio.com/my-site-8/" target="_top">Home</a>
+      <a href="https://accudigital.wixstudio.com/my-site-8/services" target="_top">Services</a>
+      <a href="https://accudigital.wixstudio.com/my-site-8/vehicle-tracking" target="_top">Vehicle Tracking</a>
+      <a href="https://accudigital.wixstudio.com/my-site-8/camera-systems" target="_top">Camera Systems</a>
+      <a href="https://accudigital.wixstudio.com/my-site-8/asset-tracking" target="_top">Asset Tracking</a>
+      <a href="https://accudigital.wixstudio.com/my-site-8/integrated-solutions" target="_top">Integrated Solutions</a>
+      <a href="https://accudigital.wixstudio.com/my-site-8/contact" target="_top">Contact</a>
+    </div>
     <span class="footer-contact">
       <a href="mailto:info@jmsassociates.ai">info@jmsassociates.ai</a>
     </span>
