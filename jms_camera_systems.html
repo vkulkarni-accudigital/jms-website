@@ -519,6 +519,66 @@
       border: 1px solid rgba(255,255,255,0.3);
     }
 
+    /* OPTIONAL AI ADD-ON */
+    .section-ai-addon {
+      background: var(--light);
+      padding: 112px 80px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+    .ai-addon-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .ai-addon-eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(26,122,74,0.08);
+      border: 1px solid rgba(26,122,74,0.2);
+      border-radius: 100px;
+      padding: 7px 14px;
+      margin-bottom: 20px;
+    }
+    .ai-addon-sub {
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--muted-on-light);
+      margin-top: 22px;
+      max-width: 520px;
+    }
+    .ai-addon-events {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .ai-addon-event {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark);
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+    .ai-addon-event::before {
+      content: "";
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
     /* APPLICATIONS */
     .section-applications {
       background: var(--light);
@@ -698,12 +758,14 @@
       .products-grid { grid-template-columns: 1fr; max-width: 480px; }
       .applications-grid { grid-template-columns: repeat(3, 1fr); }
       .section-cta { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+      .ai-addon-inner { grid-template-columns: 1fr; gap: 40px; }
     }
     @media (max-width: 768px) {
       nav { padding: 0 24px; }
       .hero { padding: 70px 24px 60px; }
       .section-capabilities-detail, .section-products, .section-capabilities-tags,
-      .section-applications, .section-cta { padding-left: 24px; padding-right: 24px; }
+      .section-applications, .section-cta, .section-ai-addon { padding-left: 24px; padding-right: 24px; }
+      .ai-addon-events { grid-template-columns: 1fr; }
       .products-grid { grid-template-columns: 1fr; max-width: none; }
       .applications-grid { grid-template-columns: repeat(2, 1fr); }
       footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
@@ -739,11 +801,11 @@
     <div class="hero-content">
       <p class="hero-eyebrow">Camera Systems</p>
       <h1 class="hero-headline">
-        AI-Powered Dash Cameras<br>
+        All-in-One Dash Cameras<br>
         for <span class="accent">Commercial Fleets</span>
       </h1>
       <p class="hero-sub">
-        Protect your drivers, reduce liability, and improve safety standards with AI dash camera systems built for commercial fleet operations.
+        Protect your drivers, reduce liability, and improve safety standards with all-in-one dash camera systems built for commercial fleet operations.
       </p>
       <div class="hero-cta-row">
         <a href="https://accudigital.wixstudio.com/my-site-8/contact" target="_top" class="btn-primary">
@@ -771,7 +833,7 @@
     <div class="section-header">
       <p class="section-eyebrow">What You Get</p>
       <h2 class="section-title reveal">Full coverage of<br><span class="accent">every situation</span></h2>
-      <p class="section-sub reveal">AI camera systems that go beyond recording, giving fleet managers the documentation, insights, and alerts needed to reduce risk and improve driver accountability.</p>
+      <p class="section-sub reveal">Camera systems that go beyond recording, giving fleet managers the documentation and context needed to reduce risk and improve driver accountability.</p>
     </div>
 
     <!-- Road-Facing -->
@@ -829,16 +891,16 @@
               <span class="mc-item-title">Driver behavior monitoring</span>
             </button>
             <div class="mc-item-body">
-              <p>In-cabin camera systems monitor driver behavior, distraction, and compliance in safety-sensitive environments.</p>
+              <p>In-cabin camera systems record driver activity and cab context in safety-sensitive environments, giving you a clear view of what happened.</p>
             </div>
           </div>
           <div class="mc-item">
             <button class="mc-item-head" type="button">
               <svg class="mc-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-              <span class="mc-item-title">AI that reinforces safe habits</span>
+              <span class="mc-item-title">AI that reinforces safe habits (optional add-on)</span>
             </button>
             <div class="mc-item-body">
-              <p>When paired with AI-enabled event detection, these platforms help fleets reinforce safe driving practices, reduce risky behavior, and improve operational accountability.</p>
+              <p>Available as an optional AI add-on, event detection helps fleets reinforce safe driving practices, reduce risky behavior, and improve operational accountability. Add it when your safety program is ready.</p>
             </div>
           </div>
           <div class="mc-item">
@@ -858,7 +920,7 @@
     <div class="capability-block multicam-block reveal">
       <div class="capability-block-text">
         <p class="capability-block-label">Feature 03</p>
-        <h3 class="capability-block-title">Multi-Camera &amp; AI Platforms</h3>
+        <h3 class="capability-block-title">Multi-Camera Platforms</h3>
         <div class="mc-accordion">
           <div class="mc-item open">
             <button class="mc-item-head" type="button">
@@ -881,10 +943,10 @@
           <div class="mc-item">
             <button class="mc-item-head" type="button">
               <svg class="mc-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-              <span class="mc-item-title">AI alerts that matter</span>
+              <span class="mc-item-title">AI alerts (optional add-on)</span>
             </button>
             <div class="mc-item-body">
-              <p>AI-driven systems enhance this visibility with real-time alerts for harsh braking, collision risk, distraction, and other high-impact driving events.</p>
+              <p>As an optional AI add-on, event detection layers on real-time alerts for collision risk, distraction, drowsiness, and other high-impact driving events.</p>
             </div>
           </div>
           <div class="mc-item">
@@ -921,7 +983,7 @@
     <div class="section-header">
       <p class="section-eyebrow">Hardware Options</p>
       <h2 class="section-title reveal">Camera systems for<br><span class="accent">every fleet need</span></h2>
-      <p class="section-sub reveal">From basic documentation to full AI-powered driver monitoring, choose the camera system that fits your operation's risk profile and compliance requirements.</p>
+      <p class="section-sub reveal">From essential road and cab documentation to optional AI event detection, choose the configuration that fits your operation's risk profile and compliance requirements.</p>
     </div>
 
     <div class="products-grid">
@@ -929,15 +991,15 @@
       <!-- All-in-One -->
       <div class="product-card reveal">
         <div class="product-card-image">
-          <img src="assets/camera-allinone.jpg" alt="All-in-One AI Dash Camera">
+          <img src="assets/camera-allinone.jpg" alt="All-in-One Dash Camera">
         </div>
         <div class="product-card-body">
           <p class="product-card-label">Option 01</p>
           <h3 class="product-card-title">All-in-One Camera</h3>
-          <p class="product-card-desc">A single-unit solution combining road-facing and in-cabin recording with AI event detection. Ideal for fleets that need complete coverage without multiple devices per vehicle.</p>
+          <p class="product-card-desc">A single-unit solution combining road-facing and in-cabin recording in one device. Ideal for fleets that need complete coverage without multiple devices per vehicle. Optional AI event detection available.</p>
           <div class="product-card-details">
             <div class="product-card-detail-item"><div class="detail-dot"></div>Dual-lens road and cab coverage in one unit</div>
-            <div class="product-card-detail-item"><div class="detail-dot"></div>AI-triggered clip upload on critical events</div>
+            <div class="product-card-detail-item"><div class="detail-dot"></div>Event-based clip upload on the fleet platform</div>
             <div class="product-card-detail-item"><div class="detail-dot"></div>Live video access via fleet management platform</div>
             <div class="product-card-detail-item"><div class="detail-dot"></div>Best for service, delivery, and mixed commercial fleets</div>
           </div>
@@ -956,15 +1018,33 @@
     </div>
     <div class="capabilities-grid reveal">
       <span class="capability-tag filled">HD Video Recording</span>
-      <span class="capability-tag outline">AI Event Detection</span>
-      <span class="capability-tag filled">Driver Monitoring</span>
-      <span class="capability-tag outline">Multi-Camera Integration</span>
-      <span class="capability-tag filled">Secure Cloud Access</span>
-      <span class="capability-tag outline">Route &amp; Trip Reporting</span>
+      <span class="capability-tag outline">In-Cabin Recording</span>
+      <span class="capability-tag filled">Multi-Camera Integration</span>
+      <span class="capability-tag outline">Secure Cloud Access</span>
+      <span class="capability-tag filled">Route &amp; Trip Reporting</span>
       <span class="capability-tag outline">Live Video Streaming</span>
       <span class="capability-tag outline">Incident Clip Upload</span>
-      <span class="capability-tag outline">Fatigue Detection</span>
       <span class="capability-tag outline">Geofencing Controls</span>
+    </div>
+  </section>
+
+  <!-- OPTIONAL AI ADD-ON -->
+  <section class="section-ai-addon">
+    <div class="ai-addon-inner">
+      <div class="ai-addon-text">
+        <span class="ai-addon-eyebrow">Optional Add-On</span>
+        <h2 class="section-title reveal">AI event detection,<br><span class="accent">added when you're ready</span></h2>
+        <p class="ai-addon-sub">AI event detection is an optional add-on, not part of the standard package. Start with the core all-in-one visibility you need today, then layer on configurable safety-event detection as your safety program evolves.</p>
+      </div>
+      <div class="ai-addon-events reveal">
+        <div class="ai-addon-event">Drowsiness detection</div>
+        <div class="ai-addon-event">Distraction detection</div>
+        <div class="ai-addon-event">Phone use while driving</div>
+        <div class="ai-addon-event">Forward-collision risk</div>
+        <div class="ai-addon-event">Following too closely</div>
+        <div class="ai-addon-event">Smoking detection</div>
+        <div class="ai-addon-event">Unauthorized driver alerts</div>
+      </div>
     </div>
   </section>
 
@@ -1014,7 +1094,7 @@
       <div class="marquee-item">
         <span class="marquee-text">GPS Fleet Tracking</span>
         <span class="marquee-sep">|</span>
-        <span class="marquee-text">AI Dash Camera</span>
+        <span class="marquee-text">All-in-One Dash Camera</span>
         <span class="marquee-sep">|</span>
         <span class="marquee-text">Asset &amp; Trailer Tracking</span>
         <span class="marquee-sep">|</span>
@@ -1026,7 +1106,7 @@
       <div class="marquee-item">
         <span class="marquee-text">GPS Fleet Tracking</span>
         <span class="marquee-sep">|</span>
-        <span class="marquee-text">AI Dash Camera</span>
+        <span class="marquee-text">All-in-One Dash Camera</span>
         <span class="marquee-sep">|</span>
         <span class="marquee-text">Asset &amp; Trailer Tracking</span>
         <span class="marquee-sep">|</span>
