@@ -1019,11 +1019,55 @@
       color: var(--muted);
       margin-top: 5px;
     }
-    .camera-feature-groups {
+    .camera-offer {
+      margin-bottom: 36px;
+    }
+    .camera-feature-group ul.camera-included-list {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px 32px;
-      margin-bottom: 36px;
+      gap: 7px 24px;
+    }
+    .camera-addon-callout {
+      margin-top: 22px;
+      background: rgba(26,122,74,0.05);
+      border: 1px solid rgba(26,122,74,0.15);
+      border-left: 3px solid var(--accent);
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+    .camera-addon-eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .camera-addon-desc {
+      font-family: var(--font-body);
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted-on-light);
+      margin-bottom: 14px;
+      max-width: 440px;
+    }
+    .camera-addon-events {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+    .camera-addon-events span {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--dark);
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.09);
+      border-radius: 100px;
+      padding: 6px 12px;
+      line-height: 1;
     }
     .camera-feature-group-title {
       font-family: var(--font-body);
@@ -1060,7 +1104,7 @@
       margin-top: 1px;
     }
     @media (max-width: 640px) {
-      .camera-feature-groups { grid-template-columns: 1fr; }
+      .camera-feature-group ul.camera-included-list { grid-template-columns: 1fr; }
     }
     .product-desc {
       font-family: var(--font-body);
@@ -2040,10 +2084,10 @@
           <span class="camera-price-note">Hardware, installation & unlimited data included</span>
         </div>
         <p class="product-desc">A dual-lens dash cam that covers the road and the driver in one unit. Built for service, delivery, and mixed commercial fleets that need complete visibility without juggling multiple devices per vehicle.</p>
-        <div class="camera-feature-groups">
+        <div class="camera-offer">
           <div class="camera-feature-group">
             <div class="camera-feature-group-title">What's included</div>
-            <ul>
+            <ul class="camera-included-list">
               <li>All-in-One camera hardware</li>
               <li>Professional installation</li>
               <li>Full 3-year warranty</li>
@@ -2054,17 +2098,18 @@
               <li>GPS vehicle and asset tracking</li>
             </ul>
           </div>
-          <div class="camera-feature-group">
-            <div class="camera-feature-group-title">AI detection events · Optional add-on</div>
-            <p style="font-family:var(--font-body); font-size:12.5px; line-height:1.55; color:var(--muted-on-light); margin:-4px 0 12px;">Available as an add-on, not part of the standard package.</p>
-            <ul>
-              <li>Drowsiness and distraction</li>
-              <li>Phone use while driving</li>
-              <li>Forward collision warning</li>
-              <li>Following too close</li>
-              <li>Smoking detection</li>
-              <li>Unauthorized driver alert</li>
-            </ul>
+          <div class="camera-addon-callout">
+            <span class="camera-addon-eyebrow">Optional Add-On</span>
+            <p class="camera-addon-desc">Need more proactive safety intelligence? AI event detection is an optional add-on, not part of the standard package. Add it when your safety program is ready.</p>
+            <div class="camera-addon-events">
+              <span>Drowsiness</span>
+              <span>Distraction</span>
+              <span>Phone use</span>
+              <span>Forward-collision risk</span>
+              <span>Following too closely</span>
+              <span>Smoking</span>
+              <span>Unauthorized driver</span>
+            </div>
           </div>
         </div>
         <a href="https://accudigital.wixstudio.com/my-site-8/camera-systems" target="_top" class="btn-primary">Explore Camera Systems
